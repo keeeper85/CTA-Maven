@@ -12,11 +12,16 @@ public class Board extends JPanel {
     private View view;
     private EventListener eventListener;
 
-    public Board(View view) {
-        this.view = view;
+    public Board() {
+
         ClickHandler clickHandler = new ClickHandler();
         addMouseListener(clickHandler);
         setFocusable(true);
+    }
+
+    public void paint(Graphics g){
+        g.setColor(Color.BLACK);
+        g.fillRect(80, 80, 20, 20);
     }
 
     public void setEventListener(EventListener eventListener){
