@@ -4,7 +4,7 @@ public class BlockFactory {
 
     GameBoard gameBoard;
 
-    public void populateGameboard(){
+    public void fillBlockList(){
 
     }
 }

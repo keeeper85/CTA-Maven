@@ -19,11 +19,15 @@ public class Board extends JPanel {
         setFocusable(true);
     }
 
+    public void setEventListener(EventListener eventListener){
+        this.eventListener = eventListener;
+    }
+
     class ClickHandler extends MouseAdapter{
         @Override
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-
+            eventListener.moveToPocket();
         }
     }
 }
