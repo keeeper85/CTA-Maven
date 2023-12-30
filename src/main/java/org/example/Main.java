@@ -1,37 +1,33 @@
 package org.example;
-
 import org.example.controller.Controller;
-import org.example.controller.EventListener;
-import org.example.model.Model;
-import org.example.view.Board;
-import org.example.view.View;
-
+import org.example.view.*;
 import javax.swing.*;
 import java.awt.*;
 
 public class Main extends JFrame {
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            Controller controller = new Controller();
+            View view = new View(controller);
+            view.init();
 
-        Main main = new Main();
-        main.setVisible(true);
+            TopPanel topPanel = new TopPanel();
+            MiddlePanel midPanel = new MiddlePanel();
+            BottomPanel botPanel = new BottomPanel();
 
-        main.setSize(500, 500);
-        main.setTitle("Clean Them All");
-        main.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            BoxLayout boxLayout = new BoxLayout(view.getContentPane(), BoxLayout.Y_AXIS);
 
-        Board board = new Board();
-        EventListener eventListener = new Controller();
-        board.setEventListener(eventListener);
-        main.add(board);
+            view.setLayout(boxLayout);
+            view.add(topPanel);
+            view.add(midPanel);
+            view.add(botPanel);
+
+            topPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, (int) (view.getHeight() * 0.05)));
+            midPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, (int) (view.getHeight() * 0.75)));
+            botPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, (int) (view.getHeight() * 0.2)));
 
 
-
-
+        });
     }
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        g.drawRect(10,10, 10, 10);
-    }
 }

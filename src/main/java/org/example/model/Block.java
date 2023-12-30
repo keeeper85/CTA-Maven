@@ -10,7 +10,6 @@ public class Block {
     private boolean clickable;
     private boolean inPocket;
     private GameBoard gameBoard;
-    private Pocket pocket;
 
     public Block(Point topLeftPoint, Point topRightPoint, Point bottomLeftPoint, Point bottomRightPoint) {
         this.topLeftPoint = topLeftPoint;
@@ -24,7 +23,7 @@ public class Block {
     public void onClick(){
         if (this.clickable){
             gameBoard.blocksOnTheBoard.remove(this);
-            pocket.blocksInThePocket.add(this);
+
         }
     }
 
@@ -56,9 +55,7 @@ public class Block {
         this.gameBoard = gameBoard;
     }
 
-    public void setPocket(Pocket pocket) {
-        this.pocket = pocket;
-    }
+    
 
     class Point{
         private boolean visible;
