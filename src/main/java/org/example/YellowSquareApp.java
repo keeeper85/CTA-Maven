@@ -42,10 +42,10 @@ public class YellowSquareApp extends JFrame {
 
 class YellowSquare extends JComponent {
 
-    private int x = 50;
+    private int x = 200;
     private int y = 50;
     private int width = 80;
-    private int height = 200;
+    private int height = 80;
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -55,7 +55,7 @@ class YellowSquare extends JComponent {
         g.setColor(Color.YELLOW);
 
         // Draw a filled yellow square
-        g.drawRect(x, y, width, height);
+        g.fillRect(x, y, width, height);
     }
 
     @Override

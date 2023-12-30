@@ -19,7 +19,7 @@ public class View extends JFrame {
     public View(Controller controller) throws HeadlessException {
         this.controller = controller;
 
-        this.addMouseListener(new ClickHandler());
+//        addMouseListener(new ClickHandler());
     }
 
     public void init() {

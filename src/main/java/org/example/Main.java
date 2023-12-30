@@ -12,7 +12,7 @@ public class Main extends JFrame {
             view.init();
 
             TopPanel topPanel = new TopPanel();
-            MiddlePanel midPanel = new MiddlePanel();
+            MiddlePanel midPanel = new MiddlePanel(controller);
             BottomPanel botPanel = new BottomPanel();
 
             BoxLayout boxLayout = new BoxLayout(view.getContentPane(), BoxLayout.Y_AXIS);

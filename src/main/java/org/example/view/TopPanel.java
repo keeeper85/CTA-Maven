@@ -18,6 +18,7 @@ public class TopPanel extends JPanel {
 
     private void restartButton(){
         JButton restart = new JButton("Restart");
+        restart.setToolTipText("Restarts the current game.");
         Dimension dimension = new Dimension(100, 30);
         restart.setPreferredSize(dimension);
         add(restart);
@@ -26,6 +27,7 @@ public class TopPanel extends JPanel {
 
     private void revertButton(){
         JButton revert = new JButton("Revert");
+        revert.setToolTipText("Reverts the last move. Can be used only once per move.");
         Dimension dimension = new Dimension(100, 30);
         revert.setPreferredSize(dimension);
         add(revert);
@@ -34,6 +36,7 @@ public class TopPanel extends JPanel {
 
     private void chooseDifficultyButton(){
         JButton difficulty = new JButton("Difficulty");
+        difficulty.setToolTipText("Starts a new game at chosen difficulty");
         Dimension dimension = new Dimension(100, 30);
         difficulty.setPreferredSize(dimension);
         add(difficulty);
