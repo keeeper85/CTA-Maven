@@ -1,17 +1,17 @@
 package org.example.controller;
 
 import org.example.view.GameboardView;
-import org.example.view.Square;
+import org.example.view.SquareView;
 
 public class Controller implements EventListener{
 
     private static Controller controller;
 
     @Override
-    public void moveToPocket(Square square, GameboardView gameboardView) {
+    public void moveToPocket(SquareView squareView, GameboardView gameboardView) {
 
         System.out.println("test");
-        gameboardView.addSquareToPocket(square);
+        gameboardView.addSquareToPocket(squareView);
     }
 
     private Controller() {

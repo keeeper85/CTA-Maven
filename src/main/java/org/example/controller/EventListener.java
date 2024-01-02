@@ -1,9 +1,9 @@
 package org.example.controller;
 
 import org.example.view.GameboardView;
-import org.example.view.Square;
+import org.example.view.SquareView;
 
 public interface EventListener {
 
-    void moveToPocket(Square square, GameboardView gameboardView);
+    void moveToPocket(SquareView squareView, GameboardView gameboardView);
 }

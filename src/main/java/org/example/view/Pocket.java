@@ -8,7 +8,7 @@ import java.util.List;
 public class Pocket extends JComponent {
 
     private final int BORDER_WIDTH = 4;
-    public List<Square> currentSquaresInPocket = new ArrayList<>();
+    public List<SquareView> currentSquaresInPocket = new ArrayList<>();
 
     @Override
     protected void paintComponent(Graphics g) {

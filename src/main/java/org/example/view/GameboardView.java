@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameboardView extends JPanel {
-    public List<Square> squares = new ArrayList<>();
+    public List<SquareView> squareViews = new ArrayList<>();
 
     private Pocket pocket;
 
@@ -20,11 +20,11 @@ public class GameboardView extends JPanel {
     }
 
     public void addSquare(){
-        Square square = new Square();
-        squares.add(square);
-        square.gameboardView = this;
-        square.setBounds(square.x, square.y, square.squareSize, square.squareSize);
-        add(square);
+        SquareView squareView = new SquareView();
+        squareViews.add(squareView);
+        squareView.gameboardView = this;
+        squareView.setBounds(squareView.x, squareView.y, squareView.squareSize, squareView.squareSize);
+        add(squareView);
     }
 
     public void drawPocket(){
@@ -34,9 +34,9 @@ public class GameboardView extends JPanel {
         add(pocket);
     }
 
-    public void addSquareToPocket(Square square){
+    public void addSquareToPocket(SquareView squareView){
 
-        square.setLocation(224, 804);
+        squareView.setLocation(224, 804);
 
         removeThrees();
         repaint();

@@ -1,12 +1,16 @@
 package org.example.view;
 
+import org.example.model.Model;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class View extends JFrame {
 
+    private Model model;
 
-    public View() throws HeadlessException {
+    public View(Model model) throws HeadlessException {
+        this.model = model;
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1000, 1000);
         setLocationRelativeTo(null);
