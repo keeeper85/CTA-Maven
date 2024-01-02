@@ -1,48 +1,30 @@
 package org.example.view;
 
-import org.example.controller.Controller;
-import org.example.controller.EventListener;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class View extends JFrame {
 
-    private Controller controller;
-    private Square square;
-    private EventListener eventListener;
 
-    private MiddlePanel board;
-
-    public View(Controller controller) throws HeadlessException {
-        this.controller = controller;
-
-//        addMouseListener(new ClickHandler());
-    }
-
-    public void init() {
+    public View() throws HeadlessException {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1000, 1000);
         setLocationRelativeTo(null);
         setTitle("Clean Them All!");
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         setVisible(true);
+        setResizable(false);
     }
 
-    public void setEventListener(EventListener eventListener){
+    public void init() {
+        TopPanel topPanel = new TopPanel();
+        GameboardView gameboardView = new GameboardView();
 
+        add(topPanel);
+        add(gameboardView);
+
+        topPanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, (int) (getHeight() * 0.05)));
+        gameboardView.setPreferredSize(new Dimension(Integer.MAX_VALUE, (int) (getHeight() * 0.95)));
     }
 
-    public void update(){
-        board.repaint();
-    }
-
-    class ClickHandler extends MouseAdapter {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            super.mouseClicked(e);
-            System.out.println(e.getPoint());
-        }
-    }
 }

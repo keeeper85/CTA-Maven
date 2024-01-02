@@ -2,10 +2,13 @@ package org.example.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pocket extends JComponent {
 
     private final int BORDER_WIDTH = 4;
+    public List<Square> currentSquaresInPocket = new ArrayList<>();
 
     @Override
     protected void paintComponent(Graphics g) {
