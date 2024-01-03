@@ -19,7 +19,7 @@ public class GameboardView extends JPanel {
         setVisible(true);
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
-        drawSquares(); //change to populateWithSquares
+        drawSquares();
         drawPocket();
         repaint();
     }
@@ -27,7 +27,7 @@ public class GameboardView extends JPanel {
     public void drawSquares(){
 
         for (Square square : model.gameboard.squaresOnTheBoard) {
-            SquareView squareView = new SquareView();
+            SquareView squareView = new SquareView(model, square.getDrawingColor());
             squareView.gameboardView = this;
             squareView.setBounds(square.getTopLeftPoint().x, square.getTopLeftPoint().y, square.getSQUARE_SIZE(), square.getSQUARE_SIZE());
             add(squareView);

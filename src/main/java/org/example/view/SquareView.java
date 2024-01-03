@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.controller.Controller;
+import org.example.model.Model;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,12 +13,14 @@ public class SquareView extends JComponent {
     GameboardView gameboardView;
     SquareView squareView;
     boolean isClickable = true;
-    int squareSize = 70;
-    int x = 250;
-    int y = 500;
+    int squareSize;
+    private final int BORDER_WIDTH = 2;
+    private final Color color;
 
-    public SquareView() {
+    public SquareView(Model model, Color color) {
         squareView = this;
+        this.color = color;
+        squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
         squareView.setVisible(true);
         squareView.setFocusable(true);
         squareView.addMouseListener(new ClickHandler());
@@ -27,8 +30,11 @@ public class SquareView extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.CYAN);
-        g.fillRect(0,0,getWidth(),getHeight());
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, getWidth(), getHeight());
+
+        g.setColor(color);
+        g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-(2 * BORDER_WIDTH), getHeight()-(2 * BORDER_WIDTH));
     }
 
     class ClickHandler extends MouseAdapter {

@@ -12,7 +12,7 @@ import java.awt.*;
 public class Main extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Model model = new Model(Difficulty.EASY);
+            Model model = new Model(Difficulty.DIFFICULT);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
             view.init();

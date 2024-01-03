@@ -50,6 +50,10 @@ public class Square {
         return SQUARE_SIZE;
     }
 
+    public Color getDrawingColor(){
+        return squareColor.getColor();
+    }
+
     @Override
     public String toString() {
         return "Square{" +
