@@ -1,29 +1,42 @@
 package org.example.model;
 
+import org.example.view.PocketSlots;
+
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Square {
 
+    public static int id;
     private Point topLeftPoint;
     private Point topRightPoint;
     private Point bottomLeftPoint;
     private Point bottomRightPoint;
     private int layer;
     private SquareColor squareColor;
-    private boolean clickable;
-    private boolean inPocket;
-    private Gameboard gameBoard;
+    public boolean clickable;
     private final int SQUARE_SIZE = 60;
+
+    private Pocket pocket;
+    private PocketSlots pocketSlot;
 
     public Square(SquareColor color) {
 
         squareColor = color;
-        inPocket = false;
+        clickable = true;
+        id++;
     }
 
-    public void onClick(){
-        if (this.clickable){
+    public List<Square> onClick(){
+
+        if (clickable){
+            clickable = false;
+            pocket.addSquareToFreeSlot(this);
+            return pocket.removeTriples(this);
         }
+        return new ArrayList<>();
     }
 
     public void setTopLeftPoint(Point topLeftPoint) {
@@ -52,6 +65,30 @@ public class Square {
 
     public Color getDrawingColor(){
         return squareColor.getColor();
+    }
+
+    private void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
+    public Pocket getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(Pocket pocket) {
+        this.pocket = pocket;
+    }
+
+    public PocketSlots getPocketSlot() {
+        return pocketSlot;
+    }
+
+    public void setPocketSlot(PocketSlots pocketSlot) {
+        this.pocketSlot = pocketSlot;
+    }
+
+    public SquareColor getSquareColor() {
+        return squareColor;
     }
 
     @Override

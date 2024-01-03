@@ -13,6 +13,7 @@ import java.util.Queue;
 public class Model {
     public Queue<Square> allSquaresReadyToPlace;
     public Gameboard gameboard;
+    public Pocket pocket;
 
     public Model(Difficulty difficulty) {
 
@@ -22,9 +23,27 @@ public class Model {
             case NORMAL -> allSquares = new NormalStrategy().getSquares();
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
+        setPocket(allSquares);
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
 
         gameboard = new Gameboard();
 
+    }
+
+    public void gameWon(){
+        System.out.println("You won!");
+    }
+
+    public void gameLost(){
+        System.out.println("You lost!");
+    }
+
+    public List<Square> setPocket(List<Square> squareList){
+        pocket = new Pocket(this);
+        List<Square> squaresWithPocket = new ArrayList<>();
+        for (Square square : squareList) {
+            square.setPocket(pocket);
+        }
+        return squaresWithPocket;
     }
 }

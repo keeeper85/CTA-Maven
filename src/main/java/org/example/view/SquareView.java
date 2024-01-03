@@ -2,6 +2,7 @@ package org.example.view;
 
 import org.example.controller.Controller;
 import org.example.model.Model;
+import org.example.model.Square;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,14 +13,18 @@ public class SquareView extends JComponent {
 
     GameboardView gameboardView;
     SquareView squareView;
-    boolean isClickable = true;
     int squareSize;
     private final int BORDER_WIDTH = 2;
     private final Color color;
+    private Square square;
+    private Model model;
 
-    public SquareView(Model model, Color color) {
+    public SquareView(Model model, Square square) {
         squareView = this;
-        this.color = color;
+        this.model = model;
+        this.square = square;
+        this.color = square.getDrawingColor();
+
         squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
         squareView.setVisible(true);
         squareView.setFocusable(true);
@@ -41,7 +46,7 @@ public class SquareView extends JComponent {
         @Override
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            if (isClickable) Controller.getInstance().moveToPocket(squareView, gameboardView);
+            if (square.clickable) Controller.getInstance(model).moveToPocket(squareView, gameboardView);
         }
     }
 
@@ -56,5 +61,9 @@ public class SquareView extends JComponent {
             return true;
         }
         return false;
+    }
+
+    public Square getSquare() {
+        return square;
     }
 }
