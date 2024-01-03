@@ -13,7 +13,7 @@ public class Gameboard {
     public int[][] gameboard;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
 
-    public final int POINT_SIZE_PIXELS = 1;
+    public final int POINT_SIZE_PIXELS = 100;
 
     public List<Point> pointsUsed = new ArrayList<>();
 

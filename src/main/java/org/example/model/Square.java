@@ -13,6 +13,7 @@ public class Square {
     private boolean clickable;
     private boolean inPocket;
     private Gameboard gameBoard;
+    private final int SQUARE_SIZE = 60;
 
     public Square(SquareColor color) {
 
@@ -39,6 +40,14 @@ public class Square {
 
     public void setBottomRightPoint(Point bottomRightPoint) {
         this.bottomRightPoint = bottomRightPoint;
+    }
+
+    public Point getTopLeftPoint() {
+        return topLeftPoint;
+    }
+
+    public int getSQUARE_SIZE() {
+        return SQUARE_SIZE;
     }
 
     @Override

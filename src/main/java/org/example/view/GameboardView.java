@@ -1,5 +1,8 @@
 package org.example.view;
 
+import org.example.model.Model;
+import org.example.model.Square;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,27 +12,31 @@ public class GameboardView extends JPanel {
     public List<SquareView> squareViews = new ArrayList<>();
 
     private Pocket pocket;
+    private Model model;
 
-    public GameboardView() {
+    public GameboardView(Model model) {
+        this.model = model;
         setVisible(true);
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
-        addSquare(); //change to populateWithSquares
+        drawSquares(); //change to populateWithSquares
         drawPocket();
         repaint();
     }
 
-    public void addSquare(){
-        SquareView squareView = new SquareView();
-        squareViews.add(squareView);
-        squareView.gameboardView = this;
-        squareView.setBounds(squareView.x, squareView.y, squareView.squareSize, squareView.squareSize);
-        add(squareView);
+    public void drawSquares(){
+
+        for (Square square : model.gameboard.squaresOnTheBoard) {
+            SquareView squareView = new SquareView();
+            squareView.gameboardView = this;
+            squareView.setBounds(square.getTopLeftPoint().x, square.getTopLeftPoint().y, square.getSQUARE_SIZE(), square.getSQUARE_SIZE());
+            add(squareView);
+        }
     }
 
     public void drawPocket(){
         pocket = new Pocket();
-        pocket.setBounds(220, 800, 560, 80);
+        pocket.setBounds(220, 800, 560, 70);
         pocket.setVisible(true);
         add(pocket);
     }

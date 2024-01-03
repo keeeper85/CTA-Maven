@@ -22,7 +22,7 @@ public class View extends JFrame {
 
     public void init() {
         TopPanel topPanel = new TopPanel();
-        GameboardView gameboardView = new GameboardView();
+        GameboardView gameboardView = new GameboardView(model);
 
         add(topPanel);
         add(gameboardView);
