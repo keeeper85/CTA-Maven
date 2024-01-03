@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EasyStrategy implements Strategy {
     @Override
-    public List<Square> getSquares(Difficulty difficulty) {
+    public List<Square> getSquares() {
 
         List<Square> easyList = new ArrayList<>();
 

@@ -1,14 +1,30 @@
 package org.example.model;
 
+import org.example.model.strategy.DifficultStrategy;
+import org.example.model.strategy.Difficulty;
+import org.example.model.strategy.EasyStrategy;
+import org.example.model.strategy.NormalStrategy;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Model {
+    public Queue<Square> allSquaresReadyToPlace;
+    public Gameboard gameboard;
 
-    private List<Square> allSquares;
+    public Model(Difficulty difficulty) {
 
-    public Model() {
-        allSquares = new ArrayList<>();
+        List<Square> allSquares = new ArrayList<>();
+        switch (difficulty){
+            case EASY -> allSquares = new EasyStrategy().getSquares();
+            case NORMAL -> allSquares = new NormalStrategy().getSquares();
+            case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
+        }
+        allSquaresReadyToPlace = new LinkedList<>(allSquares);
+
+        gameboard = new Gameboard();
 
     }
 }

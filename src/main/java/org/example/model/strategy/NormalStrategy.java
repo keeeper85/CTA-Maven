@@ -9,7 +9,7 @@ import java.util.List;
 
 public class NormalStrategy implements Strategy {
     @Override
-    public List<Square> getSquares(Difficulty difficulty) {
+    public List<Square> getSquares() {
         List<Square> normalList = new ArrayList<>();
 
         normalList.addAll(SquareFactory.createBlueSquares(36));

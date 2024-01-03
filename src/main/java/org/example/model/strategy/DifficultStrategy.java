@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DifficultStrategy implements Strategy {
     @Override
-    public List<Square> getSquares(Difficulty difficulty) {
+    public List<Square> getSquares() {
         List<Square> difficultList = new ArrayList<>();
 
         difficultList.addAll(SquareFactory.createBlueSquares(36));

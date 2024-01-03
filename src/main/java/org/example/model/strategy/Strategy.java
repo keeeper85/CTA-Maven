@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Strategy {
 
-    List<Square> getSquares(Difficulty difficulty);
+    List<Square> getSquares();
 }

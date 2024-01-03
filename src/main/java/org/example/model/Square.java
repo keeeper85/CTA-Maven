@@ -25,7 +25,27 @@ public class Square {
         }
     }
 
-    
+    public void setTopLeftPoint(Point topLeftPoint) {
+        this.topLeftPoint = topLeftPoint;
+    }
 
+    public void setTopRightPoint(Point topRightPoint) {
+        this.topRightPoint = topRightPoint;
+    }
 
+    public void setBottomLeftPoint(Point bottomLeftPoint) {
+        this.bottomLeftPoint = bottomLeftPoint;
+    }
+
+    public void setBottomRightPoint(Point bottomRightPoint) {
+        this.bottomRightPoint = bottomRightPoint;
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "squareColor=" + squareColor +
+                " " + topLeftPoint +
+                '}';
+    }
 }
