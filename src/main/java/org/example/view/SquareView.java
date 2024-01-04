@@ -15,6 +15,7 @@ public class SquareView extends JComponent {
     GameboardView gameboardView;
     SquareView squareView;
     int squareSize;
+    private boolean inPocket;
     private final int BORDER_WIDTH = 2;
     private final Color color;
     private Square square;
@@ -22,6 +23,7 @@ public class SquareView extends JComponent {
 
     public SquareView(Model model, Square square) {
         squareView = this;
+        inPocket = false;
         this.model = model;
         this.square = square;
         this.id = square.id;
@@ -53,7 +55,7 @@ public class SquareView extends JComponent {
                 gameboardView.revalidate();
                 gameboardView.repaint();
             }
-            else {
+            else if (inPocket) {
                 gameboardView.remove(squareView);
                 gameboardView.repaint();
             }
@@ -62,5 +64,9 @@ public class SquareView extends JComponent {
 
     public Square getSquare() {
         return square;
+    }
+
+    public void forRemoval(boolean inPocket) {
+        this.inPocket = inPocket;
     }
 }

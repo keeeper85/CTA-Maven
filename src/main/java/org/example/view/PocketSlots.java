@@ -2,13 +2,13 @@ package org.example.view;
 
 public enum PocketSlots {
 
-    SLOT_1 (224, 804),
-    SLOT_2 (286, 804),
-    SLOT_3 (348, 804),
-    SLOT_4 (410, 804),
-    SLOT_5 (472, 804),
-    SLOT_6 (534, 804),
-    SLOT_7 (596, 804);
+    SLOT_1 (274, 804),
+    SLOT_2 (336, 804),
+    SLOT_3 (398, 804),
+    SLOT_4 (460, 804),
+    SLOT_5 (522, 804),
+    SLOT_6 (584, 804),
+    SLOT_7 (646, 804);
 
     private final int x, y;
 
