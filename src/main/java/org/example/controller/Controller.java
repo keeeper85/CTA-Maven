@@ -24,7 +24,10 @@ public class Controller implements EventListener{
 
         PocketSlots freeSlot = square.getPocketSlot();
         gameboardView.addSquareToPocket(squareView, freeSlot);
-        gameboardView.removeTriples(squaresForRemoval);
+        if (!squaresForRemoval.isEmpty()) {
+            gameboardView.removeTriples(squaresForRemoval);
+        }
+
     }
 
     private Controller(Model model) {

@@ -5,11 +5,10 @@ import org.example.view.PocketSlots;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Square {
 
-    public static int id;
+    public String id;
     private Point topLeftPoint;
     private Point topRightPoint;
     private Point bottomLeftPoint;
@@ -22,19 +21,26 @@ public class Square {
     private Pocket pocket;
     private PocketSlots pocketSlot;
 
+    public Square(SquareColor color, String id) {
+
+        squareColor = color;
+        clickable = true;
+        this.id = id;
+    }
+
     public Square(SquareColor color) {
 
         squareColor = color;
         clickable = true;
-        id++;
+        id = "";
     }
 
     public List<Square> onClick(){
 
         if (clickable){
             clickable = false;
-            pocket.addSquareToFreeSlot(this);
-            return pocket.removeTriples(this);
+            pocket.addSquareToPocket(this);
+            return pocket.getTriplesListForRemoval(this);
         }
         return new ArrayList<>();
     }
@@ -57,6 +63,18 @@ public class Square {
 
     public Point getTopLeftPoint() {
         return topLeftPoint;
+    }
+
+    public Point getTopRightPoint() {
+        return topRightPoint;
+    }
+
+    public Point getBottomLeftPoint() {
+        return bottomLeftPoint;
+    }
+
+    public Point getBottomRightPoint() {
+        return bottomRightPoint;
     }
 
     public int getSQUARE_SIZE() {

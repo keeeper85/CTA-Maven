@@ -1,10 +1,7 @@
 package org.example.model;
 
 import org.example.view.PocketSlots;
-import org.example.view.PocketView;
 
-import java.awt.*;
-import java.awt.List;
 import java.util.*;
 
 public class Pocket {
@@ -29,7 +26,7 @@ public class Pocket {
         pocket = this;
     }
 
-    public void addSquareToFreeSlot(Square square){
+    public void addSquareToPocket(Square square){
 
         if (noFreeSlots()) model.gameLost();
 
@@ -41,7 +38,12 @@ public class Pocket {
             }
         }
 
+        removeSquareFromGameBoard(square);
         sortPocket();
+    }
+
+    private void removeSquareFromGameBoard(Square square) {
+        model.gameboard.removeSquare(square);
     }
 
     private boolean noFreeSlots() {
@@ -55,7 +57,7 @@ public class Pocket {
         return i >= POCKET_SIZE;
     }
 
-    public ArrayList<Square> removeTriples(Square square){
+    public ArrayList<Square> getTriplesListForRemoval(Square square){
 
         SquareColor color = square.getSquareColor();
         ArrayList<PocketSlots> toDeleteFromPocket = new ArrayList<>();
@@ -69,8 +71,8 @@ public class Pocket {
         }
 
         if (toDeleteFromPocket.size() == 3){
-            for (PocketSlots deleted : toDeleteFromPocket) {
-                squaresInPocket.put(deleted, null);
+            for (PocketSlots slot : toDeleteFromPocket) {
+                squaresInPocket.put(slot, null);
             }
         }
 

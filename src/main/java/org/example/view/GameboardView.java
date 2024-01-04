@@ -25,20 +25,6 @@ public class GameboardView extends JPanel {
         setBackground(Color.LIGHT_GRAY);
         drawSquares();
         drawPocket();
-
-        JButton button = new JButton("repaint");
-        button.setVisible(true);
-        button.setBounds(100,100, 100, 50);
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                gameboardView.revalidate();
-                gameboardView.repaint();
-//                System.out.println("test");
-            }
-        });
-        add(button);
-
         repaint();
     }
 
@@ -66,17 +52,17 @@ public class GameboardView extends JPanel {
     }
 
     public void removeTriples(List<Square> squaresForRemoval){
-        if (!squaresForRemoval.isEmpty()){
-            for (Square square : squaresForRemoval) {
-                for (SquareView squareView : squareViews) {
-                    if (squareView.getSquare().id == square.id){
-                        remove(squareView);
-                        break;
-                    }
+
+
+        for (Square square : squaresForRemoval) {
+            for (SquareView squareView : squareViews) {
+                if (squareView.id.equals(square.id)) {
+                    remove(squareView);
+                    break;
                 }
             }
-            revalidate();
-            repaint();
         }
+        revalidate();
+        repaint();
     }
 }

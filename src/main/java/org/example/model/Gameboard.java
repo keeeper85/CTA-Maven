@@ -93,5 +93,18 @@ public class Gameboard {
         return point;
     }
 
+    public void removeSquare(Square square){
+        squaresOnTheBoard.remove(square);
+        Point topLeftPoint = square.getTopLeftPoint();
+        Point topRightPoint = square.getTopRightPoint();
+        Point bottomLeftPoint = square.getBottomLeftPoint();
+        Point bottomRightPoint = square.getBottomRightPoint();
+
+        gameboard[topLeftPoint.y/POINT_SIZE_PIXELS][topLeftPoint.x/POINT_SIZE_PIXELS] = 0;
+        gameboard[topRightPoint.y/POINT_SIZE_PIXELS][topRightPoint.x/POINT_SIZE_PIXELS] = 0;
+        gameboard[bottomLeftPoint.y/POINT_SIZE_PIXELS][bottomLeftPoint.x/POINT_SIZE_PIXELS] = 0;
+        gameboard[bottomRightPoint.y/POINT_SIZE_PIXELS][bottomRightPoint.x/POINT_SIZE_PIXELS] = 0;
+    }
+
 
 }

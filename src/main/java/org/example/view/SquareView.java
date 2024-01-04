@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 
 public class SquareView extends JComponent {
 
+    String id;
     GameboardView gameboardView;
     SquareView squareView;
     int squareSize;
@@ -23,6 +24,7 @@ public class SquareView extends JComponent {
         squareView = this;
         this.model = model;
         this.square = square;
+        this.id = square.id;
         this.color = square.getDrawingColor();
 
         squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
@@ -46,21 +48,16 @@ public class SquareView extends JComponent {
         @Override
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            if (square.clickable) Controller.getInstance(model).moveToPocket(squareView, gameboardView);
+            if (square.clickable) {
+                Controller.getInstance(model).moveToPocket(squareView, gameboardView);
+                gameboardView.revalidate();
+                gameboardView.repaint();
+            }
+            else {
+                gameboardView.remove(squareView);
+                gameboardView.repaint();
+            }
         }
-    }
-
-    @Override
-    public boolean contains(int x, int y) {
-
-        Point componentPoint = SwingUtilities.convertPoint(this, x, y, this);
-        int componentX = (int) componentPoint.getX();
-        int componentY = (int) componentPoint.getY();
-
-        if (componentX >= 0 && componentX <= squareSize && componentY >= 0 && componentY <= squareSize) {
-            return true;
-        }
-        return false;
     }
 
     public Square getSquare() {
