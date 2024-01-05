@@ -27,7 +27,7 @@ public class SquareView extends JComponent {
         this.name = square.name;
         this.color = square.getDrawingColor();
 
-        squareSize = model.gameboard.POINT_SIZE_PIXELS * 3;
+        squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
         squareView.addMouseListener(new ClickHandler());
     }
 

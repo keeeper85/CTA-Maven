@@ -26,7 +26,6 @@ public class Model {
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
 
         gameboard = new Gameboard();
-
     }
 
     public void gameWon(){

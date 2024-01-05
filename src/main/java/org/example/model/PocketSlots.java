@@ -2,13 +2,13 @@ package org.example.model;
 
 public enum PocketSlots {
 
-    SLOT_1 (304, 804),
-    SLOT_2 (366, 804),
-    SLOT_3 (428, 804),
-    SLOT_4 (490, 804),
-    SLOT_5 (552, 804),
-    SLOT_6 (614, 804),
-    SLOT_7 (676, 804);
+    SLOT_1 (220, 804),
+    SLOT_2 (304, 804),
+    SLOT_3 (388, 804),
+    SLOT_4 (472, 804),
+    SLOT_5 (556, 804),
+    SLOT_6 (640, 804),
+    SLOT_7 (724, 804);
 
     private final int x, y;
 

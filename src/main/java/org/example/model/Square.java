@@ -7,7 +7,7 @@ import java.util.List;
 public class Square {
 
     public final String name;
-    private Point topLeftPoint;
+    private Point point;
     private Point topRightPoint;
     private Point bottomLeftPoint;
     private Point bottomRightPoint;
@@ -34,37 +34,37 @@ public class Square {
         return new ArrayList<>();
     }
 
-    public void setTopLeftPoint(Point topLeftPoint) {
-        this.topLeftPoint = topLeftPoint;
+    public void setPoint(Point point) {
+        this.point = point;
     }
 
-    public void setTopRightPoint(Point topRightPoint) {
-        this.topRightPoint = topRightPoint;
-    }
+//    public void setTopRightPoint(Point topRightPoint) {
+//        this.topRightPoint = topRightPoint;
+//    }
 
-    public void setBottomLeftPoint(Point bottomLeftPoint) {
-        this.bottomLeftPoint = bottomLeftPoint;
+//    public void setBottomLeftPoint(Point bottomLeftPoint) {
+//        this.bottomLeftPoint = bottomLeftPoint;
+//    }
+//
+//    public void setBottomRightPoint(Point bottomRightPoint) {
+//        this.bottomRightPoint = bottomRightPoint;
+//    }
+//
+    public Point getPoint() {
+        return point;
     }
-
-    public void setBottomRightPoint(Point bottomRightPoint) {
-        this.bottomRightPoint = bottomRightPoint;
-    }
-
-    public Point getTopLeftPoint() {
-        return topLeftPoint;
-    }
-
-    public Point getTopRightPoint() {
-        return topRightPoint;
-    }
-
-    public Point getBottomLeftPoint() {
-        return bottomLeftPoint;
-    }
-
-    public Point getBottomRightPoint() {
-        return bottomRightPoint;
-    }
+//
+//    public Point getTopRightPoint() {
+//        return topRightPoint;
+//    }
+//
+//    public Point getBottomLeftPoint() {
+//        return bottomLeftPoint;
+//    }
+//
+//    public Point getBottomRightPoint() {
+//        return bottomRightPoint;
+//    }
     public Color getDrawingColor(){
         return squareColor.getColor();
     }
@@ -91,5 +91,13 @@ public class Square {
 
     public SquareColor getSquareColor() {
         return squareColor;
+    }
+
+    public int getLayer() {
+        return layer;
+    }
+
+    public void setLayer(int layer) {
+        this.layer = layer;
     }
 }

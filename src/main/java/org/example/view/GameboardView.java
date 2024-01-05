@@ -33,7 +33,7 @@ public class GameboardView extends JPanel {
         for (Square square : model.gameboard.squaresOnTheBoard) {
             SquareView squareView = new SquareView(model, square);
             squareView.gameboardView = this;
-            squareView.setBounds(square.getTopLeftPoint().x, square.getTopLeftPoint().y, squareView.squareSize, squareView.squareSize);
+            squareView.setBounds(square.getPoint().x, square.getPoint().y, squareView.squareSize, squareView.squareSize);
             squareViews.add(squareView);
             add(squareView);
         }
