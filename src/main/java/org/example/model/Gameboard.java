@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Gameboard {
     public final int POINT_SIZE_PIXELS = 40;
-
     private TreeMap<Integer, Layers> layers;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
     public Gameboard() {
@@ -38,6 +37,7 @@ public class Gameboard {
 
                         square.setPoint(setCoordinatesXY(x, y));
                         square.setLayer(z);
+                        setColumnSize(square);
 
                         pointsUsed.add(new Point(y, x));
 
@@ -71,4 +71,24 @@ public class Gameboard {
             }
         }
     }
+
+    private void setColumnSize(Square square){
+        int columnSize = getColumnSize(square);
+        square.setColumnSize(columnSize);
+    }
+
+    private int getColumnSize(Square square) {
+
+        int squareLayer = square.getLayer();
+        int y = square.getPoint().y / POINT_SIZE_PIXELS;
+        int x = square.getPoint().x / POINT_SIZE_PIXELS;
+        int count = 0;
+
+        for (int i = 0; i <= squareLayer; i++) {
+            int[][] gameboard = layers.get(i).getLayer();
+            if (gameboard[y][x] == 1) count++;
+        }
+        return count;
+    }
+
 }

@@ -41,12 +41,14 @@ public class SquareView extends JComponent {
         g.setColor(color);
         g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-(2 * BORDER_WIDTH), getHeight()-(2 * BORDER_WIDTH));
 
-        String text = square.name; //here place the amount of squares left in the square column
-        FontMetrics fm = g.getFontMetrics();
-        int x = (getWidth() - fm.stringWidth(text)) / 2;
-        int y = (getHeight() - fm.getHeight()) / 2 + fm.getAscent();
-        g.setColor(Color.BLACK);
-        g.drawString(text, x, y);
+        if (square.clickable){
+            String text = String.valueOf(square.getColumnSize());
+            FontMetrics fm = g.getFontMetrics();
+            int x = (getWidth() - fm.stringWidth(text)) / 2;
+            int y = (getHeight() - fm.getHeight()) / 2 + fm.getAscent();
+            g.setColor(Color.BLACK);
+            g.drawString(text, x, y);
+        }
     }
 
     class ClickHandler extends MouseAdapter {

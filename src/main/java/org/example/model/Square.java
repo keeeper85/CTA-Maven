@@ -7,6 +7,7 @@ import java.util.List;
 public class Square {
 
     public final String name;
+    private int columnSize;
     private Point point;
     private Point topRightPoint;
     private Point bottomLeftPoint;
@@ -37,34 +38,9 @@ public class Square {
     public void setPoint(Point point) {
         this.point = point;
     }
-
-//    public void setTopRightPoint(Point topRightPoint) {
-//        this.topRightPoint = topRightPoint;
-//    }
-
-//    public void setBottomLeftPoint(Point bottomLeftPoint) {
-//        this.bottomLeftPoint = bottomLeftPoint;
-//    }
-//
-//    public void setBottomRightPoint(Point bottomRightPoint) {
-//        this.bottomRightPoint = bottomRightPoint;
-//    }
-//
     public Point getPoint() {
         return point;
     }
-//
-//    public Point getTopRightPoint() {
-//        return topRightPoint;
-//    }
-//
-//    public Point getBottomLeftPoint() {
-//        return bottomLeftPoint;
-//    }
-//
-//    public Point getBottomRightPoint() {
-//        return bottomRightPoint;
-//    }
     public Color getDrawingColor(){
         return squareColor.getColor();
     }
@@ -99,5 +75,13 @@ public class Square {
 
     public void setLayer(int layer) {
         this.layer = layer;
+    }
+
+    public int getColumnSize() {
+        return columnSize;
+    }
+
+    public void setColumnSize(int columnSize) {
+        this.columnSize = columnSize;
     }
 }
