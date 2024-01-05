@@ -11,11 +11,10 @@ import java.awt.event.MouseEvent;
 
 public class SquareView extends JComponent {
 
-    String id;
-    GameboardView gameboardView;
-    SquareView squareView;
-    int squareSize;
-    private boolean inPocket;
+    protected final String name;
+    protected final int squareSize;
+    public GameboardView gameboardView;
+    public SquareView squareView;
     private final int BORDER_WIDTH = 2;
     private final Color color;
     private Square square;
@@ -23,15 +22,12 @@ public class SquareView extends JComponent {
 
     public SquareView(Model model, Square square) {
         squareView = this;
-        inPocket = false;
         this.model = model;
         this.square = square;
-        this.id = square.id;
+        this.name = square.name;
         this.color = square.getDrawingColor();
 
-        squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
-        squareView.setVisible(true);
-        squareView.setFocusable(true);
+        squareSize = model.gameboard.POINT_SIZE_PIXELS * 3;
         squareView.addMouseListener(new ClickHandler());
     }
 
@@ -44,6 +40,13 @@ public class SquareView extends JComponent {
 
         g.setColor(color);
         g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-(2 * BORDER_WIDTH), getHeight()-(2 * BORDER_WIDTH));
+
+        String text = square.name; //here place the amount of squares left in the square column
+        FontMetrics fm = g.getFontMetrics();
+        int x = (getWidth() - fm.stringWidth(text)) / 2;
+        int y = (getHeight() - fm.getHeight()) / 2 + fm.getAscent();
+        g.setColor(Color.BLACK);
+        g.drawString(text, x, y);
     }
 
     class ClickHandler extends MouseAdapter {
@@ -52,21 +55,11 @@ public class SquareView extends JComponent {
             super.mouseClicked(e);
             if (square.clickable) {
                 Controller.getInstance(model).moveToPocket(squareView, gameboardView);
-                gameboardView.revalidate();
-                gameboardView.repaint();
-            }
-            else if (inPocket) {
-                gameboardView.remove(squareView);
-                gameboardView.repaint();
             }
         }
     }
 
     public Square getSquare() {
         return square;
-    }
-
-    public void forRemoval(boolean inPocket) {
-        this.inPocket = inPocket;
     }
 }

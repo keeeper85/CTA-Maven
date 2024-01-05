@@ -1,14 +1,14 @@
-package org.example.view;
+package org.example.model;
 
 public enum PocketSlots {
 
-    SLOT_1 (274, 804),
-    SLOT_2 (336, 804),
-    SLOT_3 (398, 804),
-    SLOT_4 (460, 804),
-    SLOT_5 (522, 804),
-    SLOT_6 (584, 804),
-    SLOT_7 (646, 804);
+    SLOT_1 (304, 804),
+    SLOT_2 (366, 804),
+    SLOT_3 (428, 804),
+    SLOT_4 (490, 804),
+    SLOT_5 (552, 804),
+    SLOT_6 (614, 804),
+    SLOT_7 (676, 804);
 
     private final int x, y;
 

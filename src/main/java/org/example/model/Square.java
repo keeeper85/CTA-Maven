@@ -1,14 +1,12 @@
 package org.example.model;
 
-import org.example.view.PocketSlots;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Square {
 
-    public String id;
+    public final String name;
     private Point topLeftPoint;
     private Point topRightPoint;
     private Point bottomLeftPoint;
@@ -16,23 +14,14 @@ public class Square {
     private int layer;
     private SquareColor squareColor;
     public boolean clickable;
-    private final int SQUARE_SIZE = 60;
-
     private Pocket pocket;
     private PocketSlots pocketSlot;
 
-    public Square(SquareColor color, String id) {
+    public Square(SquareColor color, String name) {
 
         squareColor = color;
         clickable = true;
-        this.id = id;
-    }
-
-    public Square(SquareColor color) {
-
-        squareColor = color;
-        clickable = true;
-        id = "";
+        this.name = name;
     }
 
     public List<Square> onClick(){
@@ -76,11 +65,6 @@ public class Square {
     public Point getBottomRightPoint() {
         return bottomRightPoint;
     }
-
-    public int getSQUARE_SIZE() {
-        return SQUARE_SIZE;
-    }
-
     public Color getDrawingColor(){
         return squareColor.getColor();
     }
@@ -107,13 +91,5 @@ public class Square {
 
     public SquareColor getSquareColor() {
         return squareColor;
-    }
-
-    @Override
-    public String toString() {
-        return "Square{" +
-                "squareColor=" + squareColor +
-                " " + topLeftPoint +
-                '}';
     }
 }

@@ -13,7 +13,6 @@ import java.util.Queue;
 public class Model {
     public Queue<Square> allSquaresReadyToPlace;
     public Gameboard gameboard;
-    public Pocket pocket;
 
     public Model(Difficulty difficulty) {
 
@@ -39,7 +38,7 @@ public class Model {
     }
 
     public List<Square> setPocket(List<Square> squareList){
-        pocket = new Pocket(this);
+        Pocket pocket = new Pocket(this);
         List<Square> squaresWithPocket = new ArrayList<>();
         for (Square square : squareList) {
             square.setPocket(pocket);

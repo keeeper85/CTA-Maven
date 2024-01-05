@@ -6,7 +6,7 @@ import java.awt.*;
 public class PocketView extends JComponent {
 
     private final int BORDER_WIDTH = 4;
-    public final int X = 270;
+    public final int X = 300;
     public final int Y = 800;
     public final int HEIGHT = 70;
     public final int WIDTH = 440;

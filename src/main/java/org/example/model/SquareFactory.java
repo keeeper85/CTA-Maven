@@ -8,8 +8,8 @@ public class SquareFactory {
     public static List<Square> createYellowSquares(int amount) {
         List<Square> yellowSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
-            String id = "yellow" + i;
-            Square square = new Square(SquareColor.YELLOW, id);
+            String name = "yellow" + i;
+            Square square = new Square(SquareColor.YELLOW, name);
             yellowSquares.add(square);
         }
         return yellowSquares;
@@ -18,8 +18,8 @@ public class SquareFactory {
     public static List<Square> createGoldSquares(int amount){
         List<Square> goldSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "gold" + i;
-            Square square = new Square(SquareColor.GOLD, id);
+            String name = "gold" + i;
+            Square square = new Square(SquareColor.GOLD, name);
             goldSquares.add(square);
         }
         return goldSquares;
@@ -28,8 +28,8 @@ public class SquareFactory {
     public static List<Square> createBeigeSquares(int amount){
         List<Square> beigeSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "beige" + i;
-            Square square = new Square(SquareColor.BEIGE, id);
+            String name = "beige" + i;
+            Square square = new Square(SquareColor.BEIGE, name);
             beigeSquares.add(square);
         }
         return beigeSquares;
@@ -38,8 +38,8 @@ public class SquareFactory {
     public static List<Square> createOrangeSquares(int amount){
         List<Square> orangeSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "orange" + i;
-            Square square = new Square(SquareColor.ORANGE, id);
+            String name = "orange" + i;
+            Square square = new Square(SquareColor.ORANGE, name);
             orangeSquares.add(square);
         }
         return orangeSquares;
@@ -48,8 +48,8 @@ public class SquareFactory {
     public static List<Square> createPinkSquares(int amount){
         List<Square> pinkSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "pink" + i;
-            Square square = new Square(SquareColor.PINK, id);
+            String name = "pink" + i;
+            Square square = new Square(SquareColor.PINK, name);
             pinkSquares.add(square);
         }
         return pinkSquares;
@@ -58,8 +58,8 @@ public class SquareFactory {
     public static List<Square> createMagentaSquares(int amount){
         List<Square> magentaSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "magenta" + i;
-            Square square = new Square(SquareColor.MAGENTA, id);
+            String name = "magenta" + i;
+            Square square = new Square(SquareColor.MAGENTA, name);
             magentaSquares.add(square);
         }
         return magentaSquares;
@@ -68,8 +68,8 @@ public class SquareFactory {
     public static List<Square> createRedSquares(int amount){
         List<Square> redSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "red" + i;
-            Square square = new Square(SquareColor.RED, id);
+            String name = "red" + i;
+            Square square = new Square(SquareColor.RED, name);
             redSquares.add(square);
         }
         return redSquares;
@@ -78,8 +78,8 @@ public class SquareFactory {
     public static List<Square> createCrimsonSquares(int amount){
         List<Square> crimsonSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "crimson" + i;
-            Square square = new Square(SquareColor.CRIMSON, id);
+            String name = "crimson" + i;
+            Square square = new Square(SquareColor.CRIMSON, name);
             crimsonSquares.add(square);
         }
         return crimsonSquares;
@@ -88,8 +88,8 @@ public class SquareFactory {
     public static List<Square> createCanarySquares(int amount){
         List<Square> canarySquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "canary" + i;
-            Square square = new Square(SquareColor.CANARY, id);
+            String name = "canary" + i;
+            Square square = new Square(SquareColor.CANARY, name);
             canarySquares.add(square);
         }
         return canarySquares;
@@ -98,8 +98,8 @@ public class SquareFactory {
     public static List<Square> createGreenSquares(int amount){
         List<Square> greenSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "green" + i;
-            Square square = new Square(SquareColor.GREEN, id);
+            String name = "green" + i;
+            Square square = new Square(SquareColor.GREEN, name);
             greenSquares.add(square);
         }
         return greenSquares;
@@ -108,8 +108,8 @@ public class SquareFactory {
     public static List<Square> createTealSquares(int amount){
         List<Square> tealSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "teal" + i;
-            Square square = new Square(SquareColor.TEAL, id);
+            String name = "teal" + i;
+            Square square = new Square(SquareColor.TEAL, name);
             tealSquares.add(square);
         }
         return tealSquares;
@@ -118,8 +118,8 @@ public class SquareFactory {
     public static List<Square> createBlueSquares(int amount){
         List<Square> blueSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "blue" + i;
-            Square square = new Square(SquareColor.BLUE, id);
+            String name = "blue" + i;
+            Square square = new Square(SquareColor.BLUE, name);
             blueSquares.add(square);
         }
         return blueSquares;
@@ -128,8 +128,8 @@ public class SquareFactory {
     public static List<Square> createPurpleSquares(int amount){
         List<Square> purpleSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "purple" + i;
-            Square square = new Square(SquareColor.PURPLE, id);
+            String name = "purple" + i;
+            Square square = new Square(SquareColor.PURPLE, name);
             purpleSquares.add(square);
         }
         return purpleSquares;
@@ -138,8 +138,8 @@ public class SquareFactory {
     public static List<Square> createTanSquares(int amount){
         List<Square> tanSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "tan" + i;
-            Square square = new Square(SquareColor.TAN, id);
+            String name = "tan" + i;
+            Square square = new Square(SquareColor.TAN, name);
             tanSquares.add(square);
         }
         return tanSquares;
@@ -148,8 +148,8 @@ public class SquareFactory {
     public static List<Square> createBrownSquares(int amount){
         List<Square> brownSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "brown" + i;
-            Square square = new Square(SquareColor.BROWN, id);
+            String name = "brown" + i;
+            Square square = new Square(SquareColor.BROWN, name);
             brownSquares.add(square);
         }
         return brownSquares;
@@ -158,8 +158,8 @@ public class SquareFactory {
     public static List<Square> createAquaSquares(int amount){
         List<Square> aquaSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++){
-            String id = "aqua" + i;
-            Square square = new Square(SquareColor.AQUA, id);
+            String name = "aqua" + i;
+            Square square = new Square(SquareColor.AQUA, name);
             aquaSquares.add(square);
         }
         return aquaSquares;

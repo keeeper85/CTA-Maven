@@ -1,7 +1,5 @@
 package org.example.model;
 
-import org.example.view.PocketSlots;
-
 import java.util.*;
 
 public class Pocket {
@@ -37,9 +35,7 @@ public class Pocket {
                 break;
             }
         }
-
         removeSquareFromGameBoard(square);
-        sortPocket();
     }
 
     private void removeSquareFromGameBoard(Square square) {
@@ -49,11 +45,9 @@ public class Pocket {
     private boolean noFreeSlots() {
 
         int i = 0;
-
         for (Square slot : squaresInPocket.values()) {
             if (slot != null) i++;
         }
-
         return i >= POCKET_SIZE;
     }
 
@@ -76,17 +70,6 @@ public class Pocket {
             }
         }
 
-        sortPocket();
-
         return toRemoveFromView;
-    }
-
-    private void sortPocket(){
-
-    }
-
-    public static Pocket getInstance(Model model){
-        if (pocket == null) pocket = new Pocket(model);
-        return pocket;
     }
 }

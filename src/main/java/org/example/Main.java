@@ -1,17 +1,10 @@
 package org.example;
 
 import org.example.model.Model;
-import org.example.model.Square;
-import org.example.model.SquareColor;
-import org.example.model.SquareFactory;
-import org.example.model.strategy.DifficultStrategy;
 import org.example.model.strategy.Difficulty;
 import org.example.view.View;
 
 import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main extends JFrame {
     public static void main(String[] args) {
