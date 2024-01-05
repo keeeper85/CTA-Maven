@@ -8,6 +8,7 @@ import java.awt.*;
 public class View extends JFrame {
 
     private Model model;
+    public GameboardView gameboardView;
 
     public View(Model model) throws HeadlessException {
         this.model = model;
@@ -22,7 +23,7 @@ public class View extends JFrame {
 
     public void init() {
         TopPanel topPanel = new TopPanel();
-        GameboardView gameboardView = new GameboardView(model);
+        gameboardView = new GameboardView(model);
 
         add(topPanel);
         add(gameboardView);
