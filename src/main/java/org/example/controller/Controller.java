@@ -16,6 +16,7 @@ public class Controller implements EventListener{
 
         Square square = squareView.getSquare();
         square.onClick();
+//        model.gameboard.removeSquare(square);
 
         PocketSlots freeSlot = square.getPocketSlot();
         gameboardView.addSquareViewsToPocket(squareView, freeSlot);

@@ -9,12 +9,10 @@ public class Square {
     public final String name;
     private int columnSize;
     private Point point;
-    private Point topRightPoint;
-    private Point bottomLeftPoint;
-    private Point bottomRightPoint;
     private int layer;
     private SquareColor squareColor;
     public boolean clickable;
+    public boolean inPocket;
     private Pocket pocket;
     private PocketSlots pocketSlot;
 
@@ -22,13 +20,15 @@ public class Square {
 
         squareColor = color;
         clickable = true;
+        inPocket = false;
         this.name = name;
     }
 
     public List<Square> onClick(){
 
         if (clickable){
-            clickable = false;
+            clickable = true;
+            inPocket = true;
             pocket.addSquareToPocket(this);
             return pocket.getTriplesListForRemoval(this);
         }
