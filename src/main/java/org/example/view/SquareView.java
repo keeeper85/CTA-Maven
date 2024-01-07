@@ -41,6 +41,9 @@ public class SquareView extends JComponent {
         g.setColor(color);
         g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-(2 * BORDER_WIDTH), getHeight()-(2 * BORDER_WIDTH));
 
+        g.setColor(Color.BLACK);
+        g.drawRect(0, 0, getWidth(), getHeight());
+
         if (!square.inPocket){
             String text = String.valueOf(square.getColumnSize());
             FontMetrics fm = g.getFontMetrics();
@@ -55,7 +58,8 @@ public class SquareView extends JComponent {
         @Override
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
-            if (model.gameboard.checkClickable(square)) {
+            if (model.gameboard.checkClickable(square) && !square.inPocket) {
+                System.out.println(square.name + " x:" + (square.getPoint().x / 40) + " y:" + (square.getPoint().y / 40) + " Layer:" + square.getLayer());
                 Controller.getInstance(model).moveToPocket(squareView, gameboardView);
             }
         }

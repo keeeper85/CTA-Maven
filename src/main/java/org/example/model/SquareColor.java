@@ -4,11 +4,11 @@ import java.awt.*;
 
 public enum SquareColor {
 
-    YELLOW (new Color(255, 255, 0)),
-    GOLD (new Color(255, 180, 0)),
+    YELLOW (new Color(240, 240, 120)),
+    GOLD (new Color(255, 215, 0)),
     BEIGE (new Color(245, 225, 220)),
     ORANGE (new Color(255, 100, 0)),
-    PINK (new Color(255, 100, 180)),
+    PINK (new Color(255, 150, 180)),
     MAGENTA (new Color(255, 0, 255)),
     RED (new Color(255, 0, 0)),
     CRIMSON (new Color(150, 0, 0)),

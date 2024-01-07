@@ -12,7 +12,7 @@ import javax.swing.*;
 public class Main extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Model model = new Model(Difficulty.DIFFICULT);
+            Model model = new Model(Difficulty.EASY);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
             view.init();
@@ -20,14 +20,23 @@ public class Main extends JFrame {
         });
 
 
-//        Model model = new Model(Difficulty.DIFFICULT);
-//        Gameboard gameboard = new Gameboard();
-//        gameboard.giveCoordinates(model.allSquaresReadyToPlace);
-//        for (Square square : gameboard.squaresOnTheBoard) {
-//            System.out.println(square.getLayer());
-//        }
-//        System.out.println(gameboard.squaresOnTheBoard.size());
 
+//        int total = 0;
+//
+//        for (Layers value : Layers.values()) {
+//            int count = 0;
+//            int[][] layer = value.getLayer();
+//
+//            for (int i = 0; i < layer.length; i++) {
+//                for (int j = 0; j < layer[0].length; j++) {
+//                    if (layer[i][j] == 1) count++;
+//                }
+//            }
+//            total += count;
+//            System.out.println(value.name() + " " + count);
+//        }
+//        System.out.println("-----------------");
+//        System.out.println("Total " + total);
 
     }
 

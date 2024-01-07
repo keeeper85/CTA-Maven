@@ -11,7 +11,6 @@ public class Square {
     private Point point;
     private int layer;
     private SquareColor squareColor;
-    public boolean clickable;
     public boolean inPocket;
     private Pocket pocket;
     private PocketSlots pocketSlot;
@@ -19,20 +18,15 @@ public class Square {
     public Square(SquareColor color, String name) {
 
         squareColor = color;
-        clickable = true;
         inPocket = false;
         this.name = name;
     }
 
     public List<Square> onClick(){
 
-        if (clickable){
-            clickable = true;
-            inPocket = true;
-            pocket.addSquareToPocket(this);
-            return pocket.getTriplesListForRemoval(this);
-        }
-        return new ArrayList<>();
+        inPocket = true;
+        pocket.addSquareToPocket(this);
+        return pocket.getTriplesListForRemoval(this);
     }
 
     public void setPoint(Point point) {
@@ -44,15 +38,6 @@ public class Square {
     public Color getDrawingColor(){
         return squareColor.getColor();
     }
-
-    private void setClickable(boolean clickable) {
-        this.clickable = clickable;
-    }
-
-    public Pocket getPocket() {
-        return pocket;
-    }
-
     public void setPocket(Pocket pocket) {
         this.pocket = pocket;
     }
@@ -80,7 +65,6 @@ public class Square {
     public int getColumnSize() {
         return columnSize;
     }
-
     public void setColumnSize(int columnSize) {
         this.columnSize = columnSize;
     }
