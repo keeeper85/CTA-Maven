@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.model.Model;
+import org.example.model.buttonlogic.ChooseDifficulty;
 import org.example.model.buttonlogic.Info;
 
 import javax.swing.*;
@@ -15,13 +16,14 @@ public class TopPanel extends JPanel {
         setVisible(true);
         BoxLayout boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
         setLayout(boxLayout);
-        infoButton();
+
+        revertButton();
         add(Box.createHorizontalStrut(50));
         restartButton();
         add(Box.createHorizontalStrut(50));
-        revertButton();
-        add(Box.createHorizontalStrut(50));
         chooseDifficultyButton();
+        add(Box.createHorizontalStrut(50));
+        infoButton();
     }
 
     private void infoButton(){
@@ -51,6 +53,7 @@ public class TopPanel extends JPanel {
 
     private void chooseDifficultyButton(){
         JButton difficulty = new JButton("Difficulty");
+        difficulty.addActionListener(ChooseDifficulty.getInstance());
         difficulty.setToolTipText("Starts a new game at chosen difficulty");
         Dimension dimension = new Dimension(100, 30);
         difficulty.setPreferredSize(dimension);

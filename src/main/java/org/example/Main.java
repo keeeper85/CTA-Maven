@@ -5,6 +5,7 @@ import org.example.model.Model;
 import org.example.model.Square;
 import org.example.model.layers.Layers;
 import org.example.model.strategy.Difficulty;
+import org.example.view.GameboardView;
 import org.example.view.View;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class Main extends JFrame {
             Model model = new Model(Difficulty.EASY);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
-            view.init();
+            view.init(new GameboardView(model));
         });
 //        Model model = new Model(Difficulty.NORMAL);
 //        model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
