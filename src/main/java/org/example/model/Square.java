@@ -68,4 +68,8 @@ public class Square {
     public void setColumnSize(int columnSize) {
         this.columnSize = columnSize;
     }
+
+    public Pocket getPocket() {
+        return pocket;
+    }
 }

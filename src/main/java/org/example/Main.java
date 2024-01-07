@@ -16,8 +16,10 @@ public class Main extends JFrame {
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
             view.init();
-            System.out.println(view.gameboardView.squareViews.size());
         });
+//        Model model = new Model(Difficulty.NORMAL);
+//        model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
+//        System.out.println(model.maxScore);
 
 
 

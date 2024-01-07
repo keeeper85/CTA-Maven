@@ -59,12 +59,16 @@ public class SquareView extends JComponent {
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
             if (model.gameboard.checkClickable(square) && !square.inPocket) {
-                System.out.println(square.name + " x:" + (square.getPoint().x / 40) + " y:" + (square.getPoint().y / 40) + " Layer:" + square.getLayer());
+//                System.out.println(square.name + " x:" + (square.getPoint().x / 40) + " y:" + (square.getPoint().y / 40) + " Layer:" + square.getLayer());
+
                 Controller.getInstance(model).moveToPocket(squareView, gameboardView);
+                int squaresLeft = square.getPocket().howManySquaresInPocket() + model.gameboard.squaresOnTheBoard.size();
+                gameboardView.setRemainingSquaresAndUpdateLabels(squaresLeft);
+
+                if (squaresLeft == 0) model.gameWon();
             }
         }
     }
-
     public Square getSquare() {
         return square;
     }

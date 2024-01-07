@@ -1,19 +1,34 @@
 package org.example.view;
 
+import org.example.model.Model;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class TopPanel extends JPanel {
 
-    public TopPanel() {
+    private Model model;
+
+    public TopPanel(Model model) {
+        this.model = model;
         setVisible(true);
         BoxLayout boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
         setLayout(boxLayout);
+        infoButton();
+        add(Box.createHorizontalStrut(50));
         restartButton();
-        add(Box.createHorizontalStrut(20));
+        add(Box.createHorizontalStrut(50));
         revertButton();
-        add(Box.createHorizontalStrut(20));
+        add(Box.createHorizontalStrut(50));
         chooseDifficultyButton();
+    }
+
+    private void infoButton(){
+        JButton info = new JButton("?");
+        info.setToolTipText("Restarts the current game.");
+        Dimension dimension = new Dimension(30, 30);
+        info.setPreferredSize(dimension);
+        add(info);
     }
 
     private void restartButton(){
@@ -22,7 +37,6 @@ public class TopPanel extends JPanel {
         Dimension dimension = new Dimension(100, 30);
         restart.setPreferredSize(dimension);
         add(restart);
-        restart.setVisible(true);
     }
 
     private void revertButton(){
@@ -31,7 +45,6 @@ public class TopPanel extends JPanel {
         Dimension dimension = new Dimension(100, 30);
         revert.setPreferredSize(dimension);
         add(revert);
-        revert.setVisible(true);
     }
 
     private void chooseDifficultyButton(){
@@ -40,6 +53,5 @@ public class TopPanel extends JPanel {
         Dimension dimension = new Dimension(100, 30);
         difficulty.setPreferredSize(dimension);
         add(difficulty);
-        difficulty.setVisible(true);
     }
 }

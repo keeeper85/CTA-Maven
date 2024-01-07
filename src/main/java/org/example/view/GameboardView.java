@@ -15,6 +15,9 @@ public class GameboardView extends JPanel {
     private PocketView pocketView;
     private Model model;
     private TreeMap<PocketSlots, SquareView> squareViewsInPocket;
+    private int remainingSquares = 360;
+    private JLabel remainingSquaresLabel;
+    private JLabel scoreLabel;
 
     public GameboardView(Model model) {
         this.model = model;
@@ -24,6 +27,9 @@ public class GameboardView extends JPanel {
 
         drawSquares();
         drawPocket();
+        drawRemainingSquaresLabel();
+        drawScoreLabel();
+
         initiateMap();
         repaint();
     }
@@ -44,6 +50,21 @@ public class GameboardView extends JPanel {
         pocketView.setBounds(pocketView.X, pocketView.Y, pocketView.WIDTH, pocketView.HEIGHT);
         pocketView.setVisible(true);
         add(pocketView);
+    }
+
+    private void drawRemainingSquaresLabel(){
+        String label = "Remaining squares: " + remainingSquares + "/360";
+        remainingSquaresLabel = new JLabel(label);
+        remainingSquaresLabel.setBounds(30, 880, 200, 30);
+        add(remainingSquaresLabel);
+    }
+
+    private void drawScoreLabel(){
+        int currentScore = model.getScore();
+        String label = "Score: " + currentScore + "/" + model.maxScore;
+        scoreLabel = new JLabel(label);
+        scoreLabel.setBounds(900, 880, 200, 30);
+        add(scoreLabel);
     }
 
     private void initiateMap(){
@@ -101,5 +122,13 @@ public class GameboardView extends JPanel {
         }
 
         return amount >= 3;
+    }
+
+    public void setRemainingSquaresAndUpdateLabels(int remainingSquares) {
+        this.remainingSquares = remainingSquares;
+        remove(remainingSquaresLabel);
+        remove(scoreLabel);
+        drawRemainingSquaresLabel();
+        drawScoreLabel();
     }
 }

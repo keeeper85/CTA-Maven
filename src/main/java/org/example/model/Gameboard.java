@@ -130,4 +130,14 @@ public class Gameboard {
 
         return true;
     }
+
+    public int getScoreLeft(){
+        int score = 0;
+        for (Square square : squaresOnTheBoard) {
+            for (Scores value : Scores.values()) {
+                if (square.name.contains(value.getColor())) score += value.getPoints();
+            }
+        }
+        return score;
+    }
 }

@@ -72,4 +72,14 @@ public class Pocket {
 
         return toRemoveFromView;
     }
+
+    public int howManySquaresInPocket(){
+        int count = 0;
+
+        for (Square value : squaresInPocket.values()) {
+            if (value != null) ++count;
+        }
+
+        return count;
+    }
 }

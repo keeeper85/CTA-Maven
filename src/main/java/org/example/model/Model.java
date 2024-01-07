@@ -13,27 +13,29 @@ import java.util.Queue;
 public class Model {
     public Queue<Square> allSquaresReadyToPlace;
     public Gameboard gameboard;
-
+    public int maxScore;
+    private List<Square> allSquares;
     public Model(Difficulty difficulty) {
 
-        List<Square> allSquares = new ArrayList<>();
+        allSquares = new ArrayList<>();
         switch (difficulty){
             case EASY -> allSquares = new EasyStrategy().getSquares();
             case NORMAL -> allSquares = new NormalStrategy().getSquares();
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
         setPocket(allSquares);
+        setMaxScore();
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
 
         gameboard = new Gameboard();
     }
 
     public void gameWon(){
-        System.out.println("You won!");
+        System.out.println("You won! Your score is: " + getScore());
     }
 
     public void gameLost(){
-        System.out.println("You lost!");
+        System.out.println("You lost. Your score is: " + getScore());
     }
 
     public List<Square> setPocket(List<Square> squareList){
@@ -43,5 +45,20 @@ public class Model {
             square.setPocket(pocket);
         }
         return squaresWithPocket;
+    }
+
+    private void setMaxScore(){
+
+        int score = 0;
+        for (Square square : allSquares) {
+            for (Scores value : Scores.values()) {
+                if (square.name.contains(value.getColor())) score += value.getPoints();
+            }
+        }
+        maxScore = score;
+    }
+
+    public int getScore(){
+        return maxScore - gameboard.getScoreLeft();
     }
 }
