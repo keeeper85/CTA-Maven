@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.model.Model;
+import org.example.model.buttonlogic.Info;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +26,7 @@ public class TopPanel extends JPanel {
 
     private void infoButton(){
         JButton info = new JButton("?");
+        info.addActionListener(new Info());
         info.setToolTipText("Restarts the current game.");
         Dimension dimension = new Dimension(30, 30);
         info.setPreferredSize(dimension);
