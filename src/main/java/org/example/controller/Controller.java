@@ -14,13 +14,14 @@ public class Controller implements EventListener{
     @Override
     public void moveToPocket(SquareView squareView, GameboardView gameboardView) {
 
-        Square square = squareView.getSquare();
-        square.onClick();
-//        model.gameboard.removeSquare(square);
+        if (!model.isGameFinished()){
+            Square square = squareView.getSquare();
+            square.onClick();
 
-        PocketSlots freeSlot = square.getPocketSlot();
-        gameboardView.addSquareViewsToPocket(squareView, freeSlot);
 
+            PocketSlots freeSlot = square.getPocketSlot();
+            gameboardView.addSquareViewsToPocket(squareView, freeSlot);
+        }
     }
 
     private Controller(Model model) {

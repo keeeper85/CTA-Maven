@@ -1,5 +1,6 @@
 package org.example.model;
 
+import org.example.model.buttonlogic.ChooseDifficulty;
 import org.example.model.buttonlogic.Restart;
 import org.example.model.strategy.DifficultStrategy;
 import org.example.model.strategy.Difficulty;
@@ -18,6 +19,7 @@ public class Model {
     public int currentScore;
     public List<Square> allSquares;
     private Difficulty difficulty;
+    private boolean isGameFinished;
     public Model(Difficulty difficulty) {
 
         this.difficulty = difficulty;
@@ -31,17 +33,21 @@ public class Model {
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
         initModel();
-        currentScore = 0;
-
-
+        currentScore = 9;
     }
 
     public void gameWon(){
+        isGameFinished = true;
         System.out.println("You won! Your score is: " + getScore());
+        ChooseDifficulty restartGame = ChooseDifficulty.getInstance();
+        restartGame.chooseDifficulty("Congratulations! You won!. Your score is: " + getScore(), "Try playing at different difficulty:");
     }
 
     public void gameLost(){
+        isGameFinished = true;
         System.out.println("You lost. Your score is: " + getScore());
+        ChooseDifficulty restartGame = ChooseDifficulty.getInstance();
+        restartGame.chooseDifficulty("You lost. Your score is: " + getScore(), "Try playing at different difficulty:");
     }
 
     public List<Square> setPocket(List<Square> squareList){
@@ -74,6 +80,7 @@ public class Model {
     }
 
     public void initModel(){
+        isGameFinished = false;
         setMaxScore();
         resetCurrentScore();
         setPocket(allSquares);
@@ -82,5 +89,9 @@ public class Model {
     }
     public Difficulty getDifficulty() {
         return difficulty;
+    }
+
+    public boolean isGameFinished() {
+        return isGameFinished;
     }
 }

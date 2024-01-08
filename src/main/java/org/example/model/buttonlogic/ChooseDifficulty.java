@@ -19,11 +19,15 @@ public class ChooseDifficulty implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        chooseDifficulty("Choose difficulty:", "Higher difficulty brings more rare colors.");
+    }
+
+    public void chooseDifficulty(String title, String message){
         String[] options = {"Easy", "Normal", "Difficult"};
         int result = JOptionPane.showOptionDialog(
                 null,
-                "Higher difficulty brings more rare squares.",
-                "Choose difficulty:",
+                message,
+                title,
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.INFORMATION_MESSAGE,
                 null,
@@ -32,11 +36,11 @@ public class ChooseDifficulty implements ActionListener {
 
         switch (result){
             case 0: restartAtChosenDifficulty(Difficulty.EASY);
-            break;
+                break;
             case 1: restartAtChosenDifficulty(Difficulty.NORMAL);
-            break;
+                break;
             case 2: restartAtChosenDifficulty(Difficulty.DIFFICULT);
-            break;
+                break;
         }
     }
 

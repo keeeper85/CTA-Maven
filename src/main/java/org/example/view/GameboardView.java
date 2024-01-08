@@ -1,10 +1,6 @@
 package org.example.view;
 
-import org.example.model.Model;
-import org.example.model.PocketSlots;
-import org.example.model.Square;
-import org.example.model.SquareColor;
-import org.example.model.buttonlogic.Restart;
+import org.example.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,14 +13,15 @@ public class GameboardView extends JPanel {
     private Model model;
     private TreeMap<PocketSlots, SquareView> squareViewsInPocket;
     private int remainingSquares = 360;
+    private int currentScore = 0;
     private JLabel remainingSquaresLabel;
     private JLabel scoreLabel;
-
     private List<Square> squaresOnTheBoard;
 
     public GameboardView(Model model) {
         this.model = model;
         this.squaresOnTheBoard = model.gameboard.squaresOnTheBoard;
+        System.out.println(squaresOnTheBoard.size());
 
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
@@ -64,7 +61,6 @@ public class GameboardView extends JPanel {
     }
 
     private void drawScoreLabel(){
-        int currentScore = model.getScore();
         String label = "(" + model.getDifficulty() + ") Score: " + currentScore + "/" + model.maxScore;
         scoreLabel = new JLabel(label);
         scoreLabel.setBounds(850, 880, 200, 30);
@@ -98,18 +94,31 @@ public class GameboardView extends JPanel {
 
         SquareColor color = squareView.getSquare().getSquareColor();
         for (Map.Entry<PocketSlots, SquareView> squareViewEntry : squareViewsInPocket.entrySet()) {
-            if (squareViewEntry.getValue() == null) continue;
+            SquareView value = squareViewEntry.getValue();
+            if (value == null) continue;
 
             SquareColor valueColor = squareViewEntry.getValue().getSquare().getSquareColor();
             if (color.equals(valueColor)){
                 freedSlots.add(squareViewEntry.getKey());
-                remove(squareViewEntry.getValue());
+                remove(value);
+                recalculateScore(value);
                 squareViews.remove(squareViewEntry.getValue());
             }
         }
 
         for (PocketSlots freedSlot : freedSlots) {
             squareViewsInPocket.put(freedSlot, null);
+        }
+
+        remainingSquares -= freedSlots.size();
+        updateLabels();
+        if (remainingSquares == 0) model.gameWon();
+    }
+
+    private void recalculateScore(SquareView squareView) {
+        String squareName = squareView.name;
+        for (Scores value : Scores.values()){
+            if (squareName.contains(value.getColor())) currentScore += value.getPoints();
         }
     }
 
@@ -128,11 +137,12 @@ public class GameboardView extends JPanel {
         return amount >= 3;
     }
 
-    public void setRemainingSquaresAndUpdateLabels(int remainingSquares) {
-        this.remainingSquares = remainingSquares;
+    public void updateLabels() {
         remove(remainingSquaresLabel);
         remove(scoreLabel);
         drawRemainingSquaresLabel();
         drawScoreLabel();
+        revalidate();
+        repaint();
     }
 }
