@@ -2,7 +2,7 @@ package org.example.model.strategy;
 
 import org.example.model.Square;
 import org.example.model.SquareFactory;
-import org.example.model.layers.SquaresAmount;
+import org.example.model.constants.SquaresAmount;
 
 import java.util.ArrayList;
 import java.util.Collections;

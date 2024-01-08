@@ -1,7 +1,7 @@
 package org.example.model;
 
 import org.example.model.buttonlogic.ChooseDifficulty;
-import org.example.model.buttonlogic.Restart;
+import org.example.model.constants.Scores;
 import org.example.model.strategy.DifficultStrategy;
 import org.example.model.strategy.Difficulty;
 import org.example.model.strategy.EasyStrategy;
@@ -23,8 +23,8 @@ public class Model {
     public Model(Difficulty difficulty) {
 
         this.difficulty = difficulty;
-        Restart restart = Restart.getInstance();
-        restart.setDifficulty(difficulty);
+//        Restart restart = Restart.getInstance();
+//        restart.setDifficulty(difficulty);
 
         allSquares = new ArrayList<>();
         switch (difficulty){
@@ -32,8 +32,8 @@ public class Model {
             case NORMAL -> allSquares = new NormalStrategy().getSquares();
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
-        initModel();
-        currentScore = 9;
+        allSquaresReadyToPlace = new LinkedList<>(allSquares);
+        gameboard = new Gameboard(allSquaresReadyToPlace);
     }
 
     public void gameWon(){
@@ -85,7 +85,7 @@ public class Model {
         resetCurrentScore();
         setPocket(allSquares);
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
-        gameboard = new Gameboard();
+//        gameboard = new Gameboard();
     }
     public Difficulty getDifficulty() {
         return difficulty;

@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.model.Gameboard;
 import org.example.model.Model;
-import org.example.model.Square;
-import org.example.model.layers.Layers;
 import org.example.model.strategy.Difficulty;
 import org.example.view.GameboardView;
 import org.example.view.View;

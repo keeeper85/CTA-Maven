@@ -1,6 +1,9 @@
 package org.example.view;
 
 import org.example.model.*;
+import org.example.model.constants.PocketSlots;
+import org.example.model.constants.Scores;
+import org.example.model.constants.SquareColor;
 
 import javax.swing.*;
 import java.awt.*;

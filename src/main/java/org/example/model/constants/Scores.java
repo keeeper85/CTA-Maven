@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.constants;
 
 import java.awt.*;
 

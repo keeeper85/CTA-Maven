@@ -1,7 +1,7 @@
 package org.example.model;
 
-import org.example.model.buttonlogic.Restart;
-import org.example.model.layers.Layers;
+import org.example.model.constants.Layers;
+import org.example.model.constants.Scores;
 
 import java.awt.*;
 import java.util.*;
@@ -11,7 +11,7 @@ public class Gameboard {
     public final int POINT_SIZE_PIXELS = 40;
     private TreeMap<Integer, int[][]> layers;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
-    public Gameboard() {
+    public Gameboard(Queue<Square> allSquaresReadyToPlace) {
 
         layers = new TreeMap<>(Collections.reverseOrder());
 

@@ -1,4 +1,4 @@
-package org.example.model.layers;
+package org.example.model.constants;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

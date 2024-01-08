@@ -3,7 +3,7 @@ package org.example.controller;
 import org.example.model.Model;
 import org.example.model.Square;
 import org.example.view.GameboardView;
-import org.example.model.PocketSlots;
+import org.example.model.constants.PocketSlots;
 import org.example.view.SquareView;
 
 public class Controller implements EventListener{

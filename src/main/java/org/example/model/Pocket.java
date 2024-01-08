@@ -1,5 +1,8 @@
 package org.example.model;
 
+import org.example.model.constants.PocketSlots;
+import org.example.model.constants.SquareColor;
+
 import java.util.*;
 
 public class Pocket {

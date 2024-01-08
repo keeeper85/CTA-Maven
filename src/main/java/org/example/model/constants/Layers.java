@@ -1,4 +1,4 @@
-package org.example.model.layers;
+package org.example.model.constants;
 
 public enum Layers {
 
