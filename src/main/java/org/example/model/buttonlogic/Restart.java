@@ -28,7 +28,8 @@ public class Restart implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Model model = new Model(difficulty);
-        model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
+        System.out.println("AP" + model.allSquaresReadyToPlace.size());
+        model.gameboard.removeAllAndRepopulate(model.allSquaresReadyToPlace);
         model.resetCurrentScore();
         view.remove(view.gameboardView);
         view.remove(view.topPanel);

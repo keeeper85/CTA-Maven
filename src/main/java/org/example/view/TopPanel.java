@@ -14,7 +14,7 @@ public class TopPanel extends JPanel {
 
     public TopPanel(Model model) {
         this.model = model;
-        setVisible(true);
+        setVisible(false);
         BoxLayout boxLayout = new BoxLayout(this, BoxLayout.X_AXIS);
         setLayout(boxLayout);
 
@@ -23,12 +23,13 @@ public class TopPanel extends JPanel {
         restartButton();
         add(Box.createHorizontalStrut(50));
         chooseDifficultyButton();
-        add(Box.createHorizontalStrut(50));
+        add(Box.createHorizontalStrut(800));
         infoButton();
     }
 
     private void infoButton(){
         JButton info = new JButton("?");
+        info.setFocusable(false);
         info.addActionListener(new Info());
         info.setToolTipText("How to play?");
         Dimension dimension = new Dimension(30, 30);

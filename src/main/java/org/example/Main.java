@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.Model;
+import org.example.model.buttonlogic.ChooseDifficulty;
 import org.example.model.strategy.Difficulty;
 import org.example.view.GameboardView;
 import org.example.view.View;
@@ -8,35 +9,45 @@ import org.example.view.View;
 import javax.swing.*;
 
 public class Main extends JFrame {
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Model model = new Model(Difficulty.NORMAL);
+
+
+            Difficulty difficulty = chooseDifficulty("Choose difficulty:", "Higher difficulty brings more rare colors.");
+            Model model = new Model(difficulty);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
             view.init(new GameboardView(model));
 
         });
-//        Model model = new Model(Difficulty.NORMAL);
-//        model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
-//        System.out.println(model.maxScore);
+    }
 
-        //        int total = 0;
-//
-//        for (Layers value : Layers.values()) {
-//            int count = 0;
-//            int[][] layer = value.getLayer();
-//
-//            for (int i = 0; i < layer.length; i++) {
-//                for (int j = 0; j < layer[0].length; j++) {
-//                    if (layer[i][j] == 1) count++;
-//                }
-//            }
-//            total += count;
-//            System.out.println(value.name() + " " + count);
-//        }
-//        System.out.println("-----------------");
-//        System.out.println("Total " + total);
+    public static Difficulty chooseDifficulty(String title, String message){
+        String howToPlay = "Click on the colorful squares to move them to the pocket below.\n" +
+                "Once you get there 3 squares of the same color, they will disappear.\n" +
+                "If you remove all squares, you win the game.\n" +
+                "If you get your pocket full, you lose.\n" +
+                "Good luck!";
 
+        String[] options = {"Easy", "Normal", "Difficult", "How to play?"};
+        int result = JOptionPane.showOptionDialog(
+                null,
+                message,
+                title,
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        switch (result){
+            case 0: return Difficulty.EASY;
+            case 1: return Difficulty.NORMAL;
+            case 2: return Difficulty.DIFFICULT;
+            case 3: JOptionPane.showMessageDialog(null, howToPlay);
+            default: return Difficulty.EASY;
+        }
     }
 
 }

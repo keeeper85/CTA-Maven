@@ -1,12 +1,14 @@
 package org.example.model;
 
 import org.example.model.buttonlogic.ChooseDifficulty;
+import org.example.model.buttonlogic.Restart;
 import org.example.model.constants.Scores;
 import org.example.model.strategy.DifficultStrategy;
 import org.example.model.strategy.Difficulty;
 import org.example.model.strategy.EasyStrategy;
 import org.example.model.strategy.NormalStrategy;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,8 +25,8 @@ public class Model {
     public Model(Difficulty difficulty) {
 
         this.difficulty = difficulty;
-//        Restart restart = Restart.getInstance();
-//        restart.setDifficulty(difficulty);
+        Restart restart = Restart.getInstance();
+        restart.setDifficulty(difficulty);
 
         allSquares = new ArrayList<>();
         switch (difficulty){
@@ -33,21 +35,20 @@ public class Model {
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
-        gameboard = new Gameboard(allSquaresReadyToPlace);
+        gameboard = new Gameboard(new LinkedList<>(allSquaresReadyToPlace));
+        initModel();
     }
 
     public void gameWon(){
         isGameFinished = true;
-        System.out.println("You won! Your score is: " + getScore());
-        ChooseDifficulty restartGame = ChooseDifficulty.getInstance();
-        restartGame.chooseDifficulty("Congratulations! You won!. Your score is: " + getScore(), "Try playing at different difficulty:");
+        String message = "Congratulations! You won!. Your score is: " + getScore() + " Try playing at higher difficulty.";
+        JOptionPane.showMessageDialog(null, message);
     }
 
     public void gameLost(){
         isGameFinished = true;
-        System.out.println("You lost. Your score is: " + getScore());
-        ChooseDifficulty restartGame = ChooseDifficulty.getInstance();
-        restartGame.chooseDifficulty("You lost. Your score is: " + getScore(), "Try playing at different difficulty:");
+        String message = "You lost. Your score is: " + getScore() + " Try playing at lower difficulty.";
+        JOptionPane.showMessageDialog(null, message);
     }
 
     public List<Square> setPocket(List<Square> squareList){
@@ -85,7 +86,6 @@ public class Model {
         resetCurrentScore();
         setPocket(allSquares);
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
-//        gameboard = new Gameboard();
     }
     public Difficulty getDifficulty() {
         return difficulty;

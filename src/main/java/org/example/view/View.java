@@ -21,7 +21,7 @@ public class View extends JFrame {
         restart.setView(this);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(1040, 1000);
+        setSize(1040, 950);
         setLocationRelativeTo(null);
         setTitle("Clean Them All!");
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));

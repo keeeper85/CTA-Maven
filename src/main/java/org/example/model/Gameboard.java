@@ -12,12 +12,7 @@ public class Gameboard {
     private TreeMap<Integer, int[][]> layers;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
     public Gameboard(Queue<Square> allSquaresReadyToPlace) {
-
-        layers = new TreeMap<>(Collections.reverseOrder());
-
-        for (Layers value : Layers.values()) {
-            layers.put(value.ordinal(), value.getLayer());
-        }
+        initLayers();
     }
 
     public void giveCoordinates(Queue<Square> allSquaresReadyToPlace){
@@ -48,6 +43,7 @@ public class Gameboard {
                 }
             }
         }
+        System.out.println("GB " + squaresOnTheBoard.size());
     }
 
     private Point setCoordinatesXY(int x, int y) {
@@ -69,6 +65,20 @@ public class Gameboard {
         layers.put(layer, gameboard);
         removeEmptyLayers(square);
     }
+
+    public void removeAllAndRepopulate(Queue<Square> newQueue){
+        initLayers();
+        squaresOnTheBoard.clear();
+        giveCoordinates(newQueue);
+    }
+
+    private void initLayers() {
+        layers = new TreeMap<>(Collections.reverseOrder());
+
+        for (Layers value : Layers.values()) {
+            layers.put(value.ordinal(), value.getLayer());
+            }
+        }
 
     private void removeEmptyLayers(Square square) {
         int layerKey = square.getLayer();
