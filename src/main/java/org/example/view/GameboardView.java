@@ -4,6 +4,7 @@ import org.example.model.Model;
 import org.example.model.PocketSlots;
 import org.example.model.Square;
 import org.example.model.SquareColor;
+import org.example.model.buttonlogic.Restart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +20,11 @@ public class GameboardView extends JPanel {
     private JLabel remainingSquaresLabel;
     private JLabel scoreLabel;
 
+    private List<Square> squaresOnTheBoard;
+
     public GameboardView(Model model) {
         this.model = model;
+        this.squaresOnTheBoard = model.gameboard.squaresOnTheBoard;
 
         setLayout(null);
         setBackground(Color.LIGHT_GRAY);
@@ -36,7 +40,7 @@ public class GameboardView extends JPanel {
 
     public void drawSquares(){
 
-        for (Square square : model.gameboard.squaresOnTheBoard) {
+        for (Square square : squaresOnTheBoard) {
             SquareView squareView = new SquareView(model, square);
             squareView.gameboardView = this;
             squareView.setBounds(square.getPoint().x, square.getPoint().y, squareView.squareSize, squareView.squareSize);
@@ -61,9 +65,9 @@ public class GameboardView extends JPanel {
 
     private void drawScoreLabel(){
         int currentScore = model.getScore();
-        String label = "Score: " + currentScore + "/" + model.maxScore;
+        String label = "(" + model.getDifficulty() + ") Score: " + currentScore + "/" + model.maxScore;
         scoreLabel = new JLabel(label);
-        scoreLabel.setBounds(900, 880, 200, 30);
+        scoreLabel.setBounds(850, 880, 200, 30);
         add(scoreLabel);
     }
 

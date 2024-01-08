@@ -4,17 +4,7 @@ import java.util.*;
 
 public class Pocket {
 
-    private static TreeMap<PocketSlots, Square> squaresInPocket = new TreeMap<>();
-
-    static {
-        squaresInPocket.put(PocketSlots.SLOT_1, null);
-        squaresInPocket.put(PocketSlots.SLOT_2, null);
-        squaresInPocket.put(PocketSlots.SLOT_3, null);
-        squaresInPocket.put(PocketSlots.SLOT_4, null);
-        squaresInPocket.put(PocketSlots.SLOT_5, null);
-        squaresInPocket.put(PocketSlots.SLOT_6, null);
-        squaresInPocket.put(PocketSlots.SLOT_7, null);
-    }
+    private TreeMap<PocketSlots, Square> squaresInPocket;
     private Model model;
     private final int POCKET_SIZE = 7;
     private static Pocket pocket;
@@ -22,6 +12,15 @@ public class Pocket {
     public Pocket(Model model) {
         this.model = model;
         pocket = this;
+
+        squaresInPocket = new TreeMap<>();
+        squaresInPocket.put(PocketSlots.SLOT_1, null);
+        squaresInPocket.put(PocketSlots.SLOT_2, null);
+        squaresInPocket.put(PocketSlots.SLOT_3, null);
+        squaresInPocket.put(PocketSlots.SLOT_4, null);
+        squaresInPocket.put(PocketSlots.SLOT_5, null);
+        squaresInPocket.put(PocketSlots.SLOT_6, null);
+        squaresInPocket.put(PocketSlots.SLOT_7, null);
     }
 
     public void addSquareToPocket(Square square){

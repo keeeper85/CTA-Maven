@@ -13,18 +13,17 @@ import javax.swing.*;
 public class Main extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            Model model = new Model(Difficulty.EASY);
+            Model model = new Model(Difficulty.NORMAL);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             View view = new View(model);
             view.init(new GameboardView(model));
+
         });
 //        Model model = new Model(Difficulty.NORMAL);
 //        model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
 //        System.out.println(model.maxScore);
 
-
-
-//        int total = 0;
+        //        int total = 0;
 //
 //        for (Layers value : Layers.values()) {
 //            int count = 0;

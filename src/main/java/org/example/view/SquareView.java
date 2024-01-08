@@ -64,6 +64,7 @@ public class SquareView extends JComponent {
                 Controller.getInstance(model).moveToPocket(squareView, gameboardView);
                 int squaresLeft = square.getPocket().howManySquaresInPocket() + model.gameboard.squaresOnTheBoard.size();
                 gameboardView.setRemainingSquaresAndUpdateLabels(squaresLeft);
+                System.out.println(model.currentScore);
 
                 if (squaresLeft == 0) model.gameWon();
             }

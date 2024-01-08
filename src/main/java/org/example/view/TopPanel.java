@@ -3,6 +3,7 @@ package org.example.view;
 import org.example.model.Model;
 import org.example.model.buttonlogic.ChooseDifficulty;
 import org.example.model.buttonlogic.Info;
+import org.example.model.buttonlogic.Restart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +30,7 @@ public class TopPanel extends JPanel {
     private void infoButton(){
         JButton info = new JButton("?");
         info.addActionListener(new Info());
-        info.setToolTipText("Restarts the current game.");
+        info.setToolTipText("How to play?");
         Dimension dimension = new Dimension(30, 30);
         info.setPreferredSize(dimension);
         add(info);
@@ -37,7 +38,8 @@ public class TopPanel extends JPanel {
 
     private void restartButton(){
         JButton restart = new JButton("Restart");
-        restart.setToolTipText("Restarts the current game.");
+        restart.addActionListener(Restart.getInstance());
+        restart.setToolTipText("Restarts the game at current difficulty.");
         Dimension dimension = new Dimension(100, 30);
         restart.setPreferredSize(dimension);
         add(restart);

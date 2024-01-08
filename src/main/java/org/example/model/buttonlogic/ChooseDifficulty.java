@@ -43,6 +43,7 @@ public class ChooseDifficulty implements ActionListener {
     public void restartAtChosenDifficulty(Difficulty difficulty){
         Model model = new Model(difficulty);
         model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
+        model.resetCurrentScore();
         view.remove(view.gameboardView);
         view.remove(view.topPanel);
         view.init(new GameboardView(model));

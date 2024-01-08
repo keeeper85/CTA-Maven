@@ -2,6 +2,7 @@ package org.example.view;
 
 import org.example.model.Model;
 import org.example.model.buttonlogic.ChooseDifficulty;
+import org.example.model.buttonlogic.Restart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,8 @@ public class View extends JFrame {
         this.model = model;
         ChooseDifficulty chooseDifficulty = ChooseDifficulty.getInstance();
         chooseDifficulty.setView(this);
+        Restart restart = Restart.getInstance();
+        restart.setView(this);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(1040, 1000);
@@ -26,9 +29,9 @@ public class View extends JFrame {
         setResizable(false);
     }
 
-    public void init(GameboardView gV) {
+    public void init(GameboardView gameboardView) {
         topPanel = new TopPanel(model);
-        gameboardView = gV;
+        this.gameboardView = gameboardView;
 
         add(topPanel);
         add(gameboardView);
