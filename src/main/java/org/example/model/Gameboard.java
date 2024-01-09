@@ -137,4 +137,8 @@ public class Gameboard {
         }
         return score;
     }
+
+    public TreeMap<Integer, int[][]> getLayers() {
+        return layers;
+    }
 }

@@ -29,6 +29,6 @@ class SquareFactoryTest {
             String squareName = square.name;
             if (!squareName.contains("yellow")) testFailed = true;
         }
-        assertEquals(false, testFailed);
+        assertFalse(testFailed);
     }
 }
