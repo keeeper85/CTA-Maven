@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.model.Model;
-import org.example.model.buttonlogic.ChooseDifficulty;
+import org.example.model.constants.Constants;
 import org.example.model.strategy.Difficulty;
 import org.example.view.GameboardView;
 import org.example.view.View;
@@ -24,11 +24,6 @@ public class Main extends JFrame {
     }
 
     public static Difficulty chooseDifficulty(String title, String message){
-        String howToPlay = "Click on the colorful squares to move them to the pocket below.\n" +
-                "Once you get there 3 squares of the same color, they will disappear.\n" +
-                "If you remove all squares, you win the game.\n" +
-                "If you get your pocket full, you lose.\n" +
-                "Good luck!";
 
         String[] options = {"Easy", "Normal", "Difficult", "How to play?"};
         int result = JOptionPane.showOptionDialog(
@@ -45,7 +40,7 @@ public class Main extends JFrame {
             case 0: return Difficulty.EASY;
             case 1: return Difficulty.NORMAL;
             case 2: return Difficulty.DIFFICULT;
-            case 3: JOptionPane.showMessageDialog(null, howToPlay);
+            case 3: JOptionPane.showMessageDialog(null, Constants.howToPlay);
             default: return Difficulty.EASY;
         }
     }

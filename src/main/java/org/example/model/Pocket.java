@@ -1,5 +1,6 @@
 package org.example.model;
 
+import org.example.model.constants.Constants;
 import org.example.model.constants.PocketSlots;
 import org.example.model.constants.SquareColor;
 
@@ -9,7 +10,6 @@ public class Pocket {
 
     private TreeMap<PocketSlots, Square> squaresInPocket;
     private Model model;
-    private final int POCKET_SIZE = 7;
     private static Pocket pocket;
 
     public Pocket(Model model) {
@@ -50,7 +50,7 @@ public class Pocket {
         for (Square slot : squaresInPocket.values()) {
             if (slot != null) i++;
         }
-        return i >= POCKET_SIZE;
+        return i >= Constants.POCKET_SIZE;
     }
 
     public ArrayList<Square> getTriplesListForRemoval(Square square){
@@ -66,7 +66,7 @@ public class Pocket {
             }
         }
 
-        if (toDeleteFromPocket.size() == 3){
+        if (toDeleteFromPocket.size() == Constants.SQUARES_FOR_REMOVAL){
             for (PocketSlots slot : toDeleteFromPocket) {
                 squaresInPocket.put(slot, null);
             }

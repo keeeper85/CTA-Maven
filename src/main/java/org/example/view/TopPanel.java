@@ -23,7 +23,7 @@ public class TopPanel extends JPanel {
         restartButton();
         add(Box.createHorizontalStrut(50));
         chooseDifficultyButton();
-        add(Box.createHorizontalStrut(800));
+        add(Box.createHorizontalStrut(50));
         infoButton();
     }
 

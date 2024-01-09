@@ -1,6 +1,7 @@
 package org.example.view;
 
 import org.example.model.*;
+import org.example.model.constants.Constants;
 import org.example.model.constants.PocketSlots;
 import org.example.model.constants.Scores;
 import org.example.model.constants.SquareColor;
@@ -43,7 +44,7 @@ public class GameboardView extends JPanel {
         for (Square square : squaresOnTheBoard) {
             SquareView squareView = new SquareView(model, square);
             squareView.gameboardView = this;
-            squareView.setBounds(square.getPoint().x, square.getPoint().y, squareView.squareSize, squareView.squareSize);
+            squareView.setBounds(square.getPoint().x, square.getPoint().y, Constants.SQUARE_SIZE_PIXELS, Constants.SQUARE_SIZE_PIXELS);
             squareViews.add(squareView);
             add(squareView);
         }
@@ -137,7 +138,7 @@ public class GameboardView extends JPanel {
             }
         }
 
-        return amount >= 3;
+        return amount >= Constants.SQUARES_FOR_REMOVAL;
     }
 
     public void updateLabels() {

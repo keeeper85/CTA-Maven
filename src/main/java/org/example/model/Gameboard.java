@@ -1,5 +1,6 @@
 package org.example.model;
 
+import org.example.model.constants.Constants;
 import org.example.model.constants.Layers;
 import org.example.model.constants.Scores;
 
@@ -8,7 +9,6 @@ import java.util.*;
 import java.util.List;
 
 public class Gameboard {
-    public final int POINT_SIZE_PIXELS = 40;
     private TreeMap<Integer, int[][]> layers;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
     public Gameboard(Queue<Square> allSquaresReadyToPlace) {
@@ -48,15 +48,15 @@ public class Gameboard {
 
     private Point setCoordinatesXY(int x, int y) {
 
-        Point point = new Point(POINT_SIZE_PIXELS * x, POINT_SIZE_PIXELS * y);
+        Point point = new Point(Constants.POINT_SIZE_PIXELS * x, Constants.POINT_SIZE_PIXELS * y);
         return point;
     }
 
     public void removeSquare(Square square){
         squaresOnTheBoard.remove(square);
         Point point = square.getPoint();
-        int x = point.x / POINT_SIZE_PIXELS;
-        int y = point.y / POINT_SIZE_PIXELS;
+        int x = point.x / Constants.POINT_SIZE_PIXELS;
+        int y = point.y / Constants.POINT_SIZE_PIXELS;
         int layer = square.getLayer();
 
         int[][] gameboard = layers.get(layer);
@@ -104,8 +104,8 @@ public class Gameboard {
     private int getColumnSize(Square square) {
 
         int squareLayer = square.getLayer();
-        int y = square.getPoint().y / POINT_SIZE_PIXELS;
-        int x = square.getPoint().x / POINT_SIZE_PIXELS;
+        int y = square.getPoint().y / Constants.POINT_SIZE_PIXELS;
+        int x = square.getPoint().x / Constants.POINT_SIZE_PIXELS;
         int count = 0;
 
         for (int i = squareLayer; i >= 0; i--) {
@@ -117,8 +117,8 @@ public class Gameboard {
 
     public boolean checkClickable(Square square){
         int squareLayer = square.getLayer();
-        int y = square.getPoint().y / POINT_SIZE_PIXELS;
-        int x = square.getPoint().x / POINT_SIZE_PIXELS;
+        int y = square.getPoint().y / Constants.POINT_SIZE_PIXELS;
+        int x = square.getPoint().x / Constants.POINT_SIZE_PIXELS;
 
         if (squareLayer == layers.size() - 1) return true;
 

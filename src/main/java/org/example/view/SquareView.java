@@ -3,6 +3,7 @@ package org.example.view;
 import org.example.controller.Controller;
 import org.example.model.Model;
 import org.example.model.Square;
+import org.example.model.constants.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,6 @@ import java.awt.event.MouseEvent;
 public class SquareView extends JComponent {
 
     protected final String name;
-    protected final int squareSize;
     public GameboardView gameboardView;
     public SquareView squareView;
     private final int BORDER_WIDTH = 2;
@@ -27,7 +27,6 @@ public class SquareView extends JComponent {
         this.name = square.name;
         this.color = square.getDrawingColor();
 
-        squareSize = model.gameboard.POINT_SIZE_PIXELS * 2;
         squareView.addMouseListener(new ClickHandler());
     }
 
