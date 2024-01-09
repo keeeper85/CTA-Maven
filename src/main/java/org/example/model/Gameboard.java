@@ -11,10 +11,13 @@ import java.util.List;
 public class Gameboard {
     private TreeMap<Integer, int[][]> layers;
     public List<Square> squaresOnTheBoard = new ArrayList<>();
-    public Gameboard(Queue<Square> allSquaresReadyToPlace) {
-        initLayers();
-    }
+    public Gameboard() {
+        layers = new TreeMap<>(Collections.reverseOrder());
 
+        for (Layers value : Layers.values()) {
+            layers.put(value.ordinal(), value.getLayer());
+        }
+    }
     public void giveCoordinates(Queue<Square> allSquaresReadyToPlace){
 
         Square square = allSquaresReadyToPlace.poll();
@@ -43,11 +46,9 @@ public class Gameboard {
                 }
             }
         }
-        System.out.println("GB " + squaresOnTheBoard.size());
     }
 
     private Point setCoordinatesXY(int x, int y) {
-
         Point point = new Point(Constants.POINT_SIZE_PIXELS * x, Constants.POINT_SIZE_PIXELS * y);
         return point;
     }
@@ -65,20 +66,6 @@ public class Gameboard {
         layers.put(layer, gameboard);
         removeEmptyLayers(square);
     }
-
-    public void removeAllAndRepopulate(Queue<Square> newQueue){
-        initLayers();
-        squaresOnTheBoard.clear();
-        giveCoordinates(newQueue);
-    }
-
-    private void initLayers() {
-        layers = new TreeMap<>(Collections.reverseOrder());
-
-        for (Layers value : Layers.values()) {
-            layers.put(value.ordinal(), value.getLayer());
-            }
-        }
 
     private void removeEmptyLayers(Square square) {
         int layerKey = square.getLayer();
@@ -102,7 +89,6 @@ public class Gameboard {
     }
 
     private int getColumnSize(Square square) {
-
         int squareLayer = square.getLayer();
         int y = square.getPoint().y / Constants.POINT_SIZE_PIXELS;
         int x = square.getPoint().x / Constants.POINT_SIZE_PIXELS;

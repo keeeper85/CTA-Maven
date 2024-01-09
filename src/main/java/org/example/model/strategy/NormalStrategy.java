@@ -2,6 +2,7 @@ package org.example.model.strategy;
 
 import org.example.model.Square;
 import org.example.model.SquareFactory;
+import org.example.model.constants.Constants;
 import org.example.model.constants.SquaresAmount;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class NormalStrategy implements Strategy {
-    @SquaresAmount(value = 360, description = "The total number of created squares must equal the value.")
+    @SquaresAmount(value = Constants.TOTAL_SQUARES_AMOUNT, description = "The total number of created squares must equal the value.")
     @Override
     public List<Square> getSquares() {
         List<Square> normalList = new ArrayList<>();

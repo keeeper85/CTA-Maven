@@ -21,10 +21,12 @@ public class View extends JFrame {
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         setVisible(true);
         setResizable(false);
+
+        init();
     }
 
-    public void init(GameboardView gameboardView) {
-        this.gameboardView = gameboardView;
+    public void init() {
+        this.gameboardView = new GameboardView(model);
         add(gameboardView);
         gameboardView.setPreferredSize(new Dimension(Integer.MAX_VALUE, getHeight()));
     }

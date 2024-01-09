@@ -10,12 +10,13 @@ public class Pocket {
 
     private TreeMap<PocketSlots, Square> squaresInPocket;
     private Model model;
-    private static Pocket pocket;
 
     public Pocket(Model model) {
         this.model = model;
-        pocket = this;
+        initPocket();
+    }
 
+    private void initPocket(){
         squaresInPocket = new TreeMap<>();
         squaresInPocket.put(PocketSlots.SLOT_1, null);
         squaresInPocket.put(PocketSlots.SLOT_2, null);
@@ -45,7 +46,6 @@ public class Pocket {
     }
 
     private boolean noFreeSlots() {
-
         int i = 0;
         for (Square slot : squaresInPocket.values()) {
             if (slot != null) i++;
@@ -73,15 +73,5 @@ public class Pocket {
         }
 
         return toRemoveFromView;
-    }
-
-    public int howManySquaresInPocket(){
-        int count = 0;
-
-        for (Square value : squaresInPocket.values()) {
-            if (value != null) ++count;
-        }
-
-        return count;
     }
 }

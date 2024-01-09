@@ -3,7 +3,6 @@ package org.example.view;
 import org.example.controller.Controller;
 import org.example.model.Model;
 import org.example.model.Square;
-import org.example.model.constants.Constants;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,12 +57,7 @@ public class SquareView extends JComponent {
         public void mouseClicked(MouseEvent e) {
             super.mouseClicked(e);
             if (model.gameboard.checkClickable(square) && !square.inPocket) {
-//                System.out.println(square.name + " x:" + (square.getPoint().x / 40) + " y:" + (square.getPoint().y / 40) + " Layer:" + square.getLayer());
-
                 Controller.getInstance(model).moveToPocket(squareView, gameboardView);
-//                int squaresLeft = square.getPocket().howManySquaresInPocket() + model.gameboard.squaresOnTheBoard.size();
-//                gameboardView.updateLabels();
-//                System.out.println(model.currentScore);
             }
         }
     }

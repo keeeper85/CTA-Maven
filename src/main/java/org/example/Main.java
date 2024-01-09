@@ -12,14 +12,10 @@ public class Main extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-
-
             Difficulty difficulty = chooseDifficulty("Choose difficulty:", "Higher difficulty brings more rare colors.");
             Model model = new Model(difficulty);
             model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
-            View view = new View(model);
-            view.init(new GameboardView(model));
-
+            new View(model);
         });
     }
 
@@ -44,5 +40,4 @@ public class Main extends JFrame {
             default: return Difficulty.EASY;
         }
     }
-
 }

@@ -14,4 +14,5 @@ public class Constants {
     public static final int SQUARE_SIZE_PIXELS = POINT_SIZE_PIXELS * 2;
     public static final int WINDOW_WIDTH_PIXELS = 1040;
     public static final int WINDOW_HEIGHT_PIXELS = 950;
+    public static final int TOTAL_SQUARES_AMOUNT = 360;
 }
