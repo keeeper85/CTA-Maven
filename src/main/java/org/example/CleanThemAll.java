@@ -3,18 +3,16 @@ package org.example;
 import org.example.model.Model;
 import org.example.model.constants.Constants;
 import org.example.model.strategy.Difficulty;
-import org.example.view.GameboardView;
 import org.example.view.View;
 
 import javax.swing.*;
 
-public class Main extends JFrame {
+public class CleanThemAll {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             Difficulty difficulty = chooseDifficulty("Choose difficulty:", "Higher difficulty brings more rare colors.");
             Model model = new Model(difficulty);
-            model.gameboard.giveCoordinates(model.allSquaresReadyToPlace);
             new View(model);
         });
     }

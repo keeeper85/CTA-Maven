@@ -32,12 +32,13 @@ public class Model {
             case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
         }
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
-
         initModel();
     }
 
     private void initModel(){
         gameboard = new Gameboard();
+        gameboard.giveCoordinates(allSquaresReadyToPlace);
+
         isGameFinished = false;
         setMaxScore();
         setPocket(allSquares);
