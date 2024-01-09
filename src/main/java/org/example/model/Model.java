@@ -1,7 +1,5 @@
 package org.example.model;
 
-import org.example.model.buttonlogic.ChooseDifficulty;
-import org.example.model.buttonlogic.Restart;
 import org.example.model.constants.Scores;
 import org.example.model.strategy.DifficultStrategy;
 import org.example.model.strategy.Difficulty;
@@ -25,8 +23,6 @@ public class Model {
     public Model(Difficulty difficulty) {
 
         this.difficulty = difficulty;
-        Restart restart = Restart.getInstance();
-        restart.setDifficulty(difficulty);
 
         allSquares = new ArrayList<>();
         switch (difficulty){

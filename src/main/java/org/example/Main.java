@@ -40,7 +40,7 @@ public class Main extends JFrame {
             case 0: return Difficulty.EASY;
             case 1: return Difficulty.NORMAL;
             case 2: return Difficulty.DIFFICULT;
-            case 3: JOptionPane.showMessageDialog(null, Constants.howToPlay);
+            case 3: JOptionPane.showMessageDialog(null, Constants.HOW_TO_PLAY);
             default: return Difficulty.EASY;
         }
     }
