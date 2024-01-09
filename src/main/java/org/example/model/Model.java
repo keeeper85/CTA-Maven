@@ -56,7 +56,7 @@ public class Model {
         JOptionPane.showMessageDialog(null, message);
     }
 
-    public List<Square> setPocket(List<Square> squareList){
+    private List<Square> setPocket(List<Square> squareList){
         Pocket pocket = new Pocket(this);
         List<Square> squaresWithPocket = new ArrayList<>();
         for (Square square : squareList) {
