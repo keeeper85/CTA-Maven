@@ -53,16 +53,14 @@ public class Pocket {
         return i >= Constants.POCKET_SIZE;
     }
 
-    public ArrayList<Square> getTriplesListForRemoval(Square square){
+    public void deleteTripleFromPocket(Square square){
 
         SquareColor color = square.getSquareColor();
         ArrayList<PocketSlots> toDeleteFromPocket = new ArrayList<>();
-        ArrayList<Square> toRemoveFromView = new ArrayList<>();
 
         for (Map.Entry<PocketSlots, Square> entry : squaresInPocket.entrySet()) {
             if (entry.getValue() != null && entry.getValue().getSquareColor() == color) {
                 toDeleteFromPocket.add(entry.getKey());
-                toRemoveFromView.add(entry.getValue());
             }
         }
 
@@ -71,7 +69,9 @@ public class Pocket {
                 squaresInPocket.put(slot, null);
             }
         }
+    }
 
-        return toRemoveFromView;
+    public TreeMap<PocketSlots, Square> getSquaresInPocket() {
+        return squaresInPocket;
     }
 }

@@ -25,7 +25,7 @@ public class Square {
     public void onClick(){
         inPocket = true;
         pocket.addSquareToPocket(this);
-        pocket.getTriplesListForRemoval(this);
+        pocket.deleteTripleFromPocket(this);
     }
 
     public void setPoint(Point point) {
