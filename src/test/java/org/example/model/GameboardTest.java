@@ -4,7 +4,6 @@ import org.example.model.constants.Constants;
 import org.example.model.constants.Layers;
 import org.example.model.constants.Scores;
 import org.example.model.constants.SquareColor;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

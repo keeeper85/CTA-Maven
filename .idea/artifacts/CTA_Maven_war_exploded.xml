@@ -1,13 +1,13 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="CTA-Maven:war exploded">
+  <artifact type="war" build-on-make="true" name="CTA-Maven:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/CTA_Maven_war_exploded</output-path>
-    <root id="root">
-      <element id="javaee-facet-resources" facet="CTA-Maven/web/Web" />
+    <root id="archive" name="CTA-Maven_war exploded.war">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="CTA-Maven" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="CTA-Maven/web/Web" />
     </root>
   </artifact>
 </component>
