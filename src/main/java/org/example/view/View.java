@@ -14,7 +14,7 @@ public class View extends JFrame {
     public View(Model model) throws HeadlessException {
         this.model = model;
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setSize(Constants.WINDOW_WIDTH_PIXELS, Constants.WINDOW_HEIGHT_PIXELS);
         setLocationRelativeTo(null);
         setTitle(Constants.GAME_TITLE);

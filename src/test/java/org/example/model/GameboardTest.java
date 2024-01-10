@@ -20,12 +20,13 @@ class GameboardTest {
 
     Gameboard gameboard;
     Queue<Square> testQueue;
-    int maxAmountSquares = 360;
+    int maxAmountSquares;
 
     @BeforeEach
     void createGameboard(){
         gameboard = new Gameboard();
         testQueue = new LinkedList<>();
+        maxAmountSquares = 360;
 
         for (int i = 0; i < maxAmountSquares; i++) {
             Square square = new Square(SquareColor.AQUA, "aqua" + i);
@@ -83,7 +84,7 @@ class GameboardTest {
     @Test
     void checkClickable() {
         gameboard.giveCoordinates(testQueue);
-        Square bottomSquare = gameboard.squaresOnTheBoard.get(359);
+        Square bottomSquare = gameboard.squaresOnTheBoard.get(358);
         boolean clickable = gameboard.checkClickable(bottomSquare);
 
         assertFalse(clickable);
