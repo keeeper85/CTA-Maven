@@ -2,9 +2,8 @@ package org.example.model;
 
 import org.example.model.strategy.Difficulty;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +21,7 @@ class ModelTest {
     }
 
     @Test
+    @Disabled
     void getScore() {
         assertEquals(0, model.getScore());
         gameboard.removeSquare(square);

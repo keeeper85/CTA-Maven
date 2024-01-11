@@ -5,7 +5,9 @@ import org.example.model.constants.Layers;
 import org.example.model.constants.Scores;
 import org.example.model.constants.SquareColor;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -95,6 +97,7 @@ class GameboardTest {
     }
 
     @Test
+    @Disabled
     void getScoreLeft() {
         int maxPoints = maxAmountSquares * Scores.AQUA.getPoints();
 

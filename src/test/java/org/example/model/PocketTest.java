@@ -4,6 +4,7 @@ import org.example.model.constants.PocketSlots;
 import org.example.model.constants.SquareColor;
 import org.example.model.strategy.Difficulty;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

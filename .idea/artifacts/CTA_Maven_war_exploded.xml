@@ -1,13 +1,22 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="CTA-Maven:war exploded">
+  <artifact type="war" name="CTA-Maven:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/CTA_Maven_war_exploded</output-path>
     <root id="archive" name="CTA-Maven_war exploded.war">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="CTA-Maven" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.10.0" />
+          <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.3.0" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.10.0" />
+          <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.2" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.10.0" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.10.0" />
+        </element>
       </element>
-      <element id="javaee-facet-resources" facet="CTA-Maven/web/Web" />
+      <element id="library" level="application" name="junit-jupiter-api-5.10.0" />
+      <element id="javaee-facet-resources" facet="CTA-Maven/web/Web2" />
     </root>
   </artifact>
 </component>
