@@ -1,23 +1,27 @@
 # CleanThemAll
-My first independent project after finishing CodeGym course. It's MVC based puzzle game with Swing graphics. Made in IDEA Community Edition.
+My first independent project after finishing CodeGym course. It's MVC based puzzle game with Swing graphics. Made in IDEA Community Edition (then switched to Idea UE).
 
 Premises of the game:
-- blocks of different colors are spread in given regular pattern across 3d matrix (int[][][])
-- each color has a certain number of blocks where: number % 3 = 0;
-- each block which isn't covered with other blocks can be clicked and moved to a separate array field (length = 7) under the matrix
-- if there are 3 blocks of the same color in the array field they get removed
-- if there are no more blocks on the map (matrix + array field) the game is won
-- if the array field gets full, the game is lost
-- game is based on a minigame of the same name from the mobile game Rise of Castles (link)
+- squares (total: 360) of different colors are spread (in a regular pattern) across gameboard - 3d matrix (multiple int[][])
+- each color has a certain number of squares where: number % 3 = 0;
+- each square which isn't covered with other squares can be clicked and moved to a separate "pocket", it's a TreeMap with 7 pairs <PocketSlot, Square>
+- if there are 3 squares of the same color in the pocket - they get removed
+- if there are no more squares on the gameboard (matrix + array field) the game is won
+- if the pocket gets full, the game is lost
+- game is based on a minigame of the same name from the mobile game Rise of Castles
 
-Development roadmap:
-- v0.1 - create a 2d matrix (int[][]) with a single colored block which disappears after clicked
-- v0.2 - add another pane at the bottom, the block must be moved there after clicked
-- v0.3 - add a list of blocks of different colors, implement an algorithm which populates the (still 2d) matrix at the fixed places
-- v0.4 - implement an algorithm which moves clicked blocks to the array field on the bottom, cleans triples, wins the game or loses it
-- v0.5 - add another dimension, implement an algorithm which decides which blocks are visible (and clickable), half-visible (and not clickable) and invisible (not clickable)
-- v0.6 - when all works well prepare all the missing layers (of 3rd dimension)
-- v0.7 - implement "Back" button which can revert the map state to before click (only once)
-- v0.8 - using Strategy pattern prepare 3 difficulty levels, with different number of colors used
-- v0.9 - try to replace one color with a picture, prepare tests with JUnit
-- v1.0 - refactoring, code review, finish
+How does the app work?
+
+It all starts in model, in the startegy package. As the new model is created it takes one Difficulty parameter - it decides which startegy will produce the squares for the game. 
+Easy strategy will make less different colors than normal or difficult. The user chooses the difficulty level through JOptionPane.showOptionDialog method.
+
+When the Queue<Square> with 360 squares is ready, a method in Gameboard class (model package) "giveCoordinates(Queue<Square> allSquaresReadyToPlace)" gives them their x/y/z coordinates so the view knows where to draw them.
+Gameboard class uses enum Layers which holds 27 matrixes int[][], each matrix responds to different value of z-dimension. A matrix contains 0 and 1 values - when giveCoordinates method finds 1 - it takes x/y/layer values and sets them to a new point.
+
+Once all Square objects have colors and coordinates, GameboardView method drawSquares() draws them on the JPanel.
+Each Square object has a SquareView brother in view package. SquareView is responsible for graphics and listening to mouse clicks. When a click on the square gets registered and accepted (square must be "clickable")
+- a method moveToPocket(SquareView squareView, GameboardView gameboardView) in Controller class is called. It tells the model to remove the square from the gameboard and move it to the pocket.
+GameboardView class changes the location of this square to the first free slot in Pocket and removes triples if they occur.
+
+Once the pocket gets full, model gameLost() method is called which launches a JOptionPane with score.
+Either, if there are no more squares remaining, model gameWon() is called with JOptionPane and congratulations.
