@@ -19,8 +19,8 @@ When the Queue<Square> with 360 squares is ready, a method in Gameboard class (m
 Gameboard class uses enum Layers which holds 27 matrixes int[][], each matrix responds to different value of z-dimension. A matrix contains 0 and 1 values - when giveCoordinates method finds 1 - it takes x/y/layer values and sets them to a new point.
 
 Once all Square objects have colors and coordinates, GameboardView method drawSquares() draws them on the JPanel.
-Each Square object has a SquareView brother in view package. SquareView is responsible for graphics and listening to mouse clicks. When a click on the square gets registered and accepted (square must be "clickable")
-- a method moveToPocket(SquareView squareView, GameboardView gameboardView) in Controller class is called. It tells the model to remove the square from the gameboard and move it to the pocket.
+Each Square object has a SquareView brother in view package. SquareView is responsible for graphics and listening to mouse clicks. When a click on the square gets registered and accepted (square must be "clickable") - 
+a method moveToPocket(SquareView squareView, GameboardView gameboardView) in Controller class is called. It tells the model to remove the square from the gameboard and move it to the pocket.
 GameboardView class changes the location of this square to the first free slot in Pocket and removes triples if they occur.
 
 Once the pocket gets full, model gameLost() method is called which launches a JOptionPane with score.
