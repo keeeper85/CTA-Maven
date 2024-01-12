@@ -46,7 +46,7 @@ public class Model {
 
     public void gameWon(){
         isGameFinished = true;
-        String message = "Congratulations! You won!. Your score is: " + maxScore + " Try playing at higher difficulty.";
+        String message = "Congratulations! You won! Your score is: " + maxScore + " Try playing at higher difficulty.";
         if (difficulty == Difficulty.DIFFICULT) message = "Congratulations! You won!. Your score is: " + maxScore + " You've beat the game! You're the best!";
         JOptionPane.showMessageDialog(null, message);
     }
