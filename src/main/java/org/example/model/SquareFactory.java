@@ -7,6 +7,16 @@ import java.util.List;
 
 public class SquareFactory {
 
+    public static List<Square> createColoredSquares(int amount, SquareColor color) {
+        List<Square> coloredSquares = new ArrayList<>();
+        for (int i = 0; i < amount; i++) {
+            String name = color.name().toLowerCase() + i;
+            Square square = new Square(color, name);
+            coloredSquares.add(square);
+        }
+        return coloredSquares;
+    }
+
     public static List<Square> createYellowSquares(int amount) {
         List<Square> yellowSquares = new ArrayList<>();
         for (int i = 0; i < amount; i++) {

@@ -26,11 +26,8 @@ public class Model {
         this.difficulty = difficulty;
 
         allSquares = new ArrayList<>();
-        switch (difficulty){
-            case EASY -> allSquares = new EasyStrategy().getSquares();
-            case NORMAL -> allSquares = new NormalStrategy().getSquares();
-            case DIFFICULT -> allSquares = new DifficultStrategy().getSquares();
-        }
+        allSquares = difficulty.getStrategy().getSquares();
+
         allSquaresReadyToPlace = new LinkedList<>(allSquares);
         initModel();
     }
@@ -46,8 +43,7 @@ public class Model {
 
     public void gameWon(){
         isGameFinished = true;
-        String message = "Congratulations! You won! Your score is: " + maxScore + " Try playing at higher difficulty.";
-        if (difficulty == Difficulty.DIFFICULT) message = "Congratulations! You won!. Your score is: " + maxScore + " You've beat the game! You're the best!";
+        String message = "Congratulations! You won! Your score is: " + maxScore + difficulty.getWinningMessage();
         JOptionPane.showMessageDialog(null, message);
     }
 
