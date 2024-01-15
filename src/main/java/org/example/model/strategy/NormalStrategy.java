@@ -3,6 +3,7 @@ package org.example.model.strategy;
 import org.example.model.Square;
 import org.example.model.SquareFactory;
 import org.example.model.constants.Constants;
+import org.example.model.constants.SquareColor;
 import org.example.model.constants.SquaresAmount;
 
 import java.util.ArrayList;
@@ -15,21 +16,21 @@ public class NormalStrategy implements Strategy {
     public List<Square> getSquares() {
         List<Square> normalList = new ArrayList<>();
 
-        normalList.addAll(SquareFactory.createBlueSquares(36));
-        normalList.addAll(SquareFactory.createYellowSquares(36));
-        normalList.addAll(SquareFactory.createOrangeSquares(30));
-        normalList.addAll(SquareFactory.createRedSquares(30));
-        normalList.addAll(SquareFactory.createGreenSquares(30));
-        normalList.addAll(SquareFactory.createBrownSquares(30));
-        normalList.addAll(SquareFactory.createBeigeSquares(24));
-        normalList.addAll(SquareFactory.createPinkSquares(24));
-        normalList.addAll(SquareFactory.createPurpleSquares(24));
-        normalList.addAll(SquareFactory.createTanSquares(24));
-        normalList.addAll(SquareFactory.createAquaSquares(24));
-        normalList.addAll(SquareFactory.createCrimsonSquares(15));
-        normalList.addAll(SquareFactory.createCanarySquares(15));
-        normalList.addAll(SquareFactory.createTealSquares(12));
-        normalList.addAll(SquareFactory.createGoldSquares(6));
+        normalList.addAll(SquareFactory.createColoredSquares(36, SquareColor.BLUE));
+        normalList.addAll(SquareFactory.createColoredSquares(36, SquareColor.YELLOW));
+        normalList.addAll(SquareFactory.createColoredSquares(30, SquareColor.ORANGE));
+        normalList.addAll(SquareFactory.createColoredSquares(30, SquareColor.RED));
+        normalList.addAll(SquareFactory.createColoredSquares(30, SquareColor.GREEN));
+        normalList.addAll(SquareFactory.createColoredSquares(30, SquareColor.BROWN));
+        normalList.addAll(SquareFactory.createColoredSquares(24, SquareColor.BEIGE));
+        normalList.addAll(SquareFactory.createColoredSquares(24, SquareColor.PINK));
+        normalList.addAll(SquareFactory.createColoredSquares(24, SquareColor.PURPLE));
+        normalList.addAll(SquareFactory.createColoredSquares(24, SquareColor.TAN));
+        normalList.addAll(SquareFactory.createColoredSquares(24, SquareColor.AQUA));
+        normalList.addAll(SquareFactory.createColoredSquares(15, SquareColor.CRIMSON));
+        normalList.addAll(SquareFactory.createColoredSquares(15, SquareColor.CANARY));
+        normalList.addAll(SquareFactory.createColoredSquares(12, SquareColor.TEAL));
+        normalList.addAll(SquareFactory.createColoredSquares(6, SquareColor.GOLD));
 
         Collections.shuffle(normalList);
 

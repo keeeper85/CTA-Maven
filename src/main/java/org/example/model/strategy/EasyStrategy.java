@@ -3,6 +3,7 @@ package org.example.model.strategy;
 import org.example.model.Square;
 import org.example.model.SquareFactory;
 import org.example.model.constants.Constants;
+import org.example.model.constants.SquareColor;
 import org.example.model.constants.SquaresAmount;
 
 import java.util.ArrayList;
@@ -16,21 +17,21 @@ public class EasyStrategy implements Strategy {
 
         List<Square> easyList = new ArrayList<>();
 
-        easyList.addAll(SquareFactory.createBlueSquares(30));
-        easyList.addAll(SquareFactory.createYellowSquares(30));
-        easyList.addAll(SquareFactory.createOrangeSquares(30));
-        easyList.addAll(SquareFactory.createRedSquares(30));
-        easyList.addAll(SquareFactory.createGreenSquares(30));
-        easyList.addAll(SquareFactory.createBrownSquares(30));
-        easyList.addAll(SquareFactory.createBeigeSquares(24));
-        easyList.addAll(SquareFactory.createPinkSquares(24));
-        easyList.addAll(SquareFactory.createPurpleSquares(24));
-        easyList.addAll(SquareFactory.createTanSquares(24));
-        easyList.addAll(SquareFactory.createAquaSquares(24));
-        easyList.addAll(SquareFactory.createCrimsonSquares(18));
-        easyList.addAll(SquareFactory.createCanarySquares(18));
-        easyList.addAll(SquareFactory.createTealSquares(18));
-        easyList.addAll(SquareFactory.createGoldSquares(6));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.BLUE));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.YELLOW));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.ORANGE));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.RED));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.GREEN));
+        easyList.addAll(SquareFactory.createColoredSquares(30, SquareColor.BROWN));
+        easyList.addAll(SquareFactory.createColoredSquares(24, SquareColor.BEIGE));
+        easyList.addAll(SquareFactory.createColoredSquares(24, SquareColor.PINK));
+        easyList.addAll(SquareFactory.createColoredSquares(24, SquareColor.PURPLE));
+        easyList.addAll(SquareFactory.createColoredSquares(24, SquareColor.TAN));
+        easyList.addAll(SquareFactory.createColoredSquares(24, SquareColor.AQUA));
+        easyList.addAll(SquareFactory.createColoredSquares(18, SquareColor.CRIMSON));
+        easyList.addAll(SquareFactory.createColoredSquares(18, SquareColor.CANARY));
+        easyList.addAll(SquareFactory.createColoredSquares(18, SquareColor.TEAL));
+        easyList.addAll(SquareFactory.createColoredSquares(6, SquareColor.GOLD));
 
         Collections.shuffle(easyList);
 
